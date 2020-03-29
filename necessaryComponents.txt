@@ -1,0 +1,20 @@
+Components:
+
+
+- Starting Window:
+    - Secret Hitler image
+    - **Reuse todo list to enter names
+        - name cards with button functionality
+        - progress bar (has line for minimum about 60% of the way) (#REUSABLE)
+        - begin game button (only enabled when 6 players entered)
+
+- Enter Game- Awaiting Action:
+    - Failed Vote Counter (might need to be 3 separate marks)
+    - image
+    - container with all players namecards with current state (killed, power) (#REUSABLE)
+    - Scoreboard container (#REUSABLE)
+        - thick bar with differing color halfway thru (per the boards design)
+        - thin bar showing the actual progress on policies
+
+
+    
