@@ -1,19 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import FailedVoteCounter from "./components/FailedVoteCounter";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello World</Text>
+    <View style={styles.failedVotes}>
+      <FailedVoteCounter />
+      <FailedVoteCounter />
+      <FailedVoteCounter />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+  failedVotes: {
+    backgroundColor: "beige",
+    padding: 30,
+    flexDirection: "row"
   }
 });
