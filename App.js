@@ -6,8 +6,6 @@ export default function App() {
   return (
     <View style={styles.failedVotes}>
       <FailedVoteCounter />
-      <FailedVoteCounter />
-      <FailedVoteCounter />
     </View>
   );
 }
@@ -15,7 +13,6 @@ export default function App() {
 const styles = StyleSheet.create({
   failedVotes: {
     backgroundColor: "beige",
-    padding: 30,
-    flexDirection: "row"
+    padding: 30
   }
 });

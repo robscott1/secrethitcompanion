@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Button } from "react-native";
+import FailedVoteBtn from "./FailedVoteBtn";
 
 class FailedVoteCounter extends Component {
   state = {};
@@ -7,7 +8,9 @@ class FailedVoteCounter extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="" style={styles.failedVoteBtn} />
+        <FailedVoteBtn />
+        <FailedVoteBtn />
+        <FailedVoteBtn />
       </View>
     );
   }
@@ -15,16 +18,7 @@ class FailedVoteCounter extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "beige",
-    height: 45,
-    width: 45,
-    borderRadius: 45,
-    borderColor: "#6592BC",
-    borderWidth: 3,
-    marginHorizontal: 30
+    flexDirection: "row"
   }
 });
-
 export default FailedVoteCounter;
