@@ -23,6 +23,12 @@ class PlayerList extends Component {
             <Button title={item.key} style={styles.item} />
           )}
           numColumns={2}
+          contentContainerStyle={{
+            width: "100%",
+            justifyContent: "cemter",
+            alignContent: "center",
+            backgroundColor: "skyblue"
+          }}
         />
       </View>
     );
@@ -33,11 +39,6 @@ const styles = StyleSheet.create({
   container: {
     maxHeight: "45%",
     padding: 20
-  },
-  item: {
-    color: "red",
-    backgroundColor: "skyblue",
-    padding: 30
   }
 });
 
