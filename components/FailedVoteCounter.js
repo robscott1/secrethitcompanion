@@ -18,7 +18,9 @@ class FailedVoteCounter extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row"
+    flexDirection: "row",
+    paddingLeft: 30,
+    paddingTop: 25
   }
 });
 export default FailedVoteCounter;
