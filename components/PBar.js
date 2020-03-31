@@ -10,12 +10,26 @@ class PBar extends Component {
 
   render() {
     return (
-      <div className="bar">
-        <div
+      <View
+        style={{
+          position: "relative",
+          height: 5,
+          width: "100%",
+          borderWith: 1,
+          verticalAlign: "middle"
+        }}
+      >
+        <View
           className="filler"
-          style={{ width: `${this.props.percentage}%` }}
-        ></div>
-      </div>
+          style={{
+            background: "beige",
+            height: "100%",
+            backgroundColor: "blue",
+            width: "50%",
+            backgroundColor: this.props.color
+          }}
+        ></View>
+      </View>
     );
   }
 }

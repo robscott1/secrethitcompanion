@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import FailedVoteCounter from "./components/FailedVoteCounter";
 import ImageOrTimer from "./components/ImageOrTimer";
 import PlayerList from "./components/PlayersList";
+import Scoreboard from "./components/Scoreboard";
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <FailedVoteCounter />
       <ImageOrTimer />
       <PlayerList />
+      <Scoreboard />
     </View>
   );
 }
