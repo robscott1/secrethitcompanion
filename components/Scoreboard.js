@@ -9,9 +9,10 @@ class Scoreboard extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <PBar percentage={80} color={"#6592BC"} />
         <LiberalGuide />
+        <View style={{ height: 5 }} />
         <PBar percentage={50} color={"#BE5A48"} />
         <FascistGuide />
       </View>
@@ -21,9 +22,7 @@ class Scoreboard extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    paddingHorizontal: 20
   }
 });
 
