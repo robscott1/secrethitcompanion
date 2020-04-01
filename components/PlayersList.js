@@ -25,7 +25,7 @@ class PlayerList extends Component {
           numColumns={2}
           contentContainerStyle={{
             width: "100%",
-            justifyContent: "cemter",
+            justifyContent: "center",
             alignContent: "center"
           }}
         />
