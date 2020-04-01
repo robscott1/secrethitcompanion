@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, FlatList, Button } from "react-native";
+import PlayerCard from "./PlayerCard";
 
 class PlayerList extends Component {
   state = {};
@@ -9,23 +10,23 @@ class PlayerList extends Component {
       <View style={styles.container}>
         <FlatList
           data={[
-            { key: "Android" },
-            { key: "iOS" },
-            { key: "Java" },
-            { key: "Swift" },
-            { key: "Php" },
-            { key: "Hadoop" },
-            { key: "Sap" },
-            { key: "Python" },
-            { key: "C++" }
+            { name: "Android", chancellor: "false", president: "false", alive: "true" },
+            { name: "iOS", chancellor: "false", president: "false", alive: "true"  },
+            { name: "Java", chancellor: "false", president: "false", alive: "true"  },
+            { name: "Swift", chancellor: "false", president: "false", alive: "true"  },
+            { name: "Php", chancellor: "false", president: "false", alive: "true"  },
+            { name: "Hadoop", chancellor: "false", president: "false", alive: "true"  },
+            { name: "Sap", chancellor: "false", president: "false", alive: "true"  },
+            { name: "Python", chancellor: "false", president: "false", alive: "true"  },
+            { name: "C++", chancellor: "false", president: "false", alive: "true"  }
           ]}
           renderItem={({ item }) => (
-            <Button title={item.key} style={styles.item} />
+            <PlayerCard name={item.name} chancellor={item.chancellor} president={item.president} alive={item.alive}/>
           )}
           numColumns={2}
           contentContainerStyle={{
             width: "100%",
-            justifyContent: "cemter",
+            justifyContent: "center",
             alignContent: "center"
           }}
         />
