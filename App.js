@@ -4,6 +4,7 @@ import FailedVoteCounter from "./components/FailedVoteCounter";
 import ImageOrTimer from "./components/ImageOrTimer";
 import PlayerList from "./components/PlayersList";
 import Scoreboard from "./components/Scoreboard";
+import ButtonMenu from "./components/ButtonMenu";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <ImageOrTimer />
       <PlayerList />
       <Scoreboard />
+      <ButtonMenu />
     </View>
   );
 }
