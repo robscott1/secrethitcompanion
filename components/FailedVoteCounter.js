@@ -3,14 +3,16 @@ import { View, StyleSheet, Button } from "react-native";
 import FailedVoteBtn from "./FailedVoteBtn";
 
 class FailedVoteCounter extends Component {
-  state = {};
+  state = {
+    attempts: 3
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <FailedVoteBtn />
-        <FailedVoteBtn />
-        <FailedVoteBtn />
+        <FailedVoteBtn num={1} attempts={this.state.attempts} />
+        <FailedVoteBtn num={2} attempts={this.state.attempts} />
+        <FailedVoteBtn num={3} attempts={this.state.attempts} />
       </View>
     );
   }

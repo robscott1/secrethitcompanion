@@ -2,22 +2,45 @@ import React, { Component } from "react";
 import { View, StyleSheet, Button } from "react-native";
 
 class FailedVoteBtn extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {};
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Button title="" style={styles.failedVoteBtn} />
-      </View>
-    );
+    if (this.props.num <= this.props.attempts) {
+      return (
+        <View style={styles.filled}>
+          <View />
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.unfilled}>
+          <View />
+        </View>
+      );
+    }
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  unfilled: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "beige",
+    backgroundColor: "#FBB969",
+    height: 45,
+    width: 45,
+    borderRadius: 45,
+    borderColor: "#8ECEDD",
+    borderWidth: 3,
+    marginHorizontal: 30
+  },
+  filled: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#6592BC",
     height: 45,
     width: 45,
     borderRadius: 45,

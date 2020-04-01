@@ -34,12 +34,16 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     flex: 1,
     justifyContent: "center", // gotta use these stylings
-    alignItems: "center" // on body holding text
+    alignItems: "center", // on body holding text
+    backgroundColor: "black",
+    marginHorizontal: 2,
+    shadowOpacity: 0.75
   },
   text: {
     justifyContent: "center",
     fontSize: 14,
-    paddingVertical: 10
+    paddingVertical: 10,
+    color: "white"
   }
 });
 

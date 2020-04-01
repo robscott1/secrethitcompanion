@@ -20,7 +20,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "beige",
+    backgroundColor: "#FBB969",
     height: "100%"
   }
 });
