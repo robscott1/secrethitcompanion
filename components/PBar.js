@@ -16,7 +16,8 @@ class PBar extends Component {
           height: 5,
           width: "100%",
           borderWith: 1,
-          verticalAlign: "middle"
+          verticalAlign: "middle",
+          paddingBottom: 3
         }}
       >
         <View

@@ -26,8 +26,7 @@ class PlayerList extends Component {
           contentContainerStyle={{
             width: "100%",
             justifyContent: "cemter",
-            alignContent: "center",
-            backgroundColor: "skyblue"
+            alignContent: "center"
           }}
         />
       </View>
@@ -37,7 +36,7 @@ class PlayerList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    maxHeight: "45%",
+    height: "50%",
     padding: 20
   }
 });
