@@ -4,7 +4,7 @@ import FailedVoteBtn from "./FailedVoteBtn";
 
 class FailedVoteCounter extends Component {
   state = {
-    attempts: 3
+    attempts: 0
   };
 
   render() {
