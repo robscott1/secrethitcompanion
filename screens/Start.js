@@ -3,12 +3,13 @@ import {
   View,
   TextInput,
   StyleSheet,
-  Button,
   TouchableHighlight,
-  Text
+  Text,
+  TouchableOpacity
 } from "react-native";
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
+import PlayerInputPBar from "../components/PlayerInputPBar";
 
 class StartScreen extends Component {
   state = {
@@ -33,7 +34,7 @@ class StartScreen extends Component {
               })
             }
           />
-          <TouchableHighlight
+          <TouchableOpacity
             style={styles.button}
             onPress={() =>
               this.state.players.push({
@@ -44,19 +45,28 @@ class StartScreen extends Component {
               })
             }
           >
-            <Text
-              style={{
-                fontSize: 18,
-                color: "white",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
-              Add
-            </Text>
-          </TouchableHighlight>
+            <Text style={styles.text}>Add</Text>
+          </TouchableOpacity>
         </View>
+        <PlayerInputPBar percentage={(this.state.players.length / 10) * 100} />
         <PlayerList players={this.state.players} />
+        <TouchableOpacity
+          style={
+            this.state.players.length >= 6
+              ? styles.startBtnActive
+              : styles.startBtnInactive
+          }
+        >
+          <Text
+            style={{
+              color: this.state.players.length >= 6 ? "white" : "grey",
+              alignSelf: "center",
+              fontSize: 32
+            }}
+          >
+            Start Game!
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -64,22 +74,24 @@ class StartScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 60,
+    paddingTop: 50,
     paddingHorizontal: 20
   },
   header: {
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
-    marginTop: 30
+    marginVertical: 30
   },
   input: {
     height: "100%",
     width: "75%",
     borderWidth: 2,
+    borderRadius: 20,
     paddingTop: 30,
     fontSize: 18,
     alignItems: "center",
+    textAlign: "center",
     backgroundColor: "white",
     shadowOpacity: 0.5,
     alignContent: "center",
@@ -94,6 +106,30 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     alignItems: "center",
     shadowOpacity: 0.5
+  },
+  text: {
+    fontSize: 18,
+    color: "white",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  startBtnActive: {
+    alignSelf: "center",
+    width: "100%",
+    height: 45,
+    borderWidth: 2,
+    borderRadius: 15,
+    backgroundColor: "black",
+    shadowOpacity: 0.5
+  },
+  startBtnInactive: {
+    alignSelf: "center",
+    width: "100%",
+    height: 45,
+    borderWidth: 2,
+    borderColor: "grey",
+    borderRadius: 15,
+    backgroundColor: "grey"
   }
 });
 
