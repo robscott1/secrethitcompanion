@@ -8,14 +8,12 @@ class PlayerList extends Component {
 
     this.triggerAction = this.triggerAction.bind(this);
   }
-  state = {};
 
   triggerAction(item) {
     this.props.triggerAction("playerAction");
   }
 
   render() {
-    console.log(this.props.players);
     return (
       <View style={styles.container}>
         <FlatList

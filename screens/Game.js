@@ -9,13 +9,6 @@ import ButtonMenu from "../components/ButtonMenu";
 import { NavigationContainer } from "@react-navigation/native";
 
 class GameScreen extends Component {
-  static navigationOptions = {
-    title: "hello",
-    headerLeft: null
-  };
-
-  state = {};
-
   render() {
     return (
       <View>
@@ -45,4 +38,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export default GameScreen;
+const mapStateToProps = state => ({
+    ...state.playerReducer,
+    ...state.failedVoteReducer
+});
+
+const mapDispatchToProps = dispatch => ({
+  newPlayer: (player) => { dispatch(addPlayer(player)) }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);
+
