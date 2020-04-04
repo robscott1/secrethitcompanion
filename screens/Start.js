@@ -1,39 +1,70 @@
 import React, { Component } from "react";
-import icon from "../assets/icon.png";
 import {
   View,
   TextInput,
   StyleSheet,
-  TouchableHighlight,
-  Text,
-  TouchableOpacity
+  Button,
+  TouchableOpacity,
+  Text
 } from "react-native";
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
-import PlayerInputPBar from "../components/PlayerInputPBar";
+import playerReducer from "../reducers/player";
 
 class StartScreen extends Component {
-  static navigationOptions = () => ({
-    title: 'Add Players',
-    headerStyle: {
-      height: Platform.OS === 'android' ? 54 : 54,
-      backgroundColor: "#434343"
-    },
-    headerTitleStyle: {
-      margin: Platform.OS === 'android' ? 0 : 0,
-      color: 'white'
-    },
-    headerLeft: <Image source={icon} style={styles.imageStyle}/>
-  });
+  constructor(props) {
+    super(props);
+
+    this.beginGame = this.beginGame.bind(this);
+    this.changeTextHandler = this.changeTextHandler.bind(this);
+    this.addPlayer = this.addPlayer.bind(this);
+  }
 
   state = {
     entry: "",
-    players: []
+    players: [],
+    appText: ""
   };
 
-  render() {
-    console.log("DBG Console - players: " + this.state.players);
+  changeTextHandler(text) {
+    this.setState({
+      entry: text,
+      players: this.state.players,
+      appText: this.state.appText
+    });
+  }
 
+  beginGame() {
+    this.props.navigation.navigate('game', { players: this.state.players });
+    if (this.state.players.length < 6) {
+      console.log('minimum of 6 players');
+    } else {
+      this.props.navigation.navigate('game', { players: this.state.players });
+    }
+  }
+
+  addPlayer() {
+    if (this.state.entry === "") {
+      return;
+    }
+
+    var players = this.state.players;
+
+    players.push({
+      name: this.state.entry,
+      chancellor: false,
+      president: false,
+      alive: true
+    });
+
+    this.setState({
+      players: players,
+      entry: '',
+      appText: ''
+    });
+  }
+
+  render() {
     return (
       <View style={styles.container}>
         <ImageOrTimer />
@@ -41,46 +72,19 @@ class StartScreen extends Component {
           <TextInput
             style={styles.input}
             placeholder="Enter Players"
-            onChangeText={val =>
-              this.setState({
-                entry: val,
-                players: this.state.players
-              })
-            }
+            value={this.state.entry}
+            onChangeText={this.changeTextHandler}
           />
-          <TouchableOpacity
+          <TouchableOpacity title='add'
             style={styles.button}
-            onPress={() =>
-              this.state.players.push({
-                name: this.state.entry,
-                chancellor: false,
-                president: false,
-                alive: true
-              })
-            }
-          >
-            <Text style={styles.text}>Add</Text>
+            onPress={this.addPlayer}>
           </TouchableOpacity>
         </View>
         <PlayerInputPBar percentage={(this.state.players.length / 10) * 100} />
         <PlayerList players={this.state.players} />
-        <TouchableOpacity
-          style={
-            this.state.players.length >= 6
-              ? styles.startBtnActive
-              : styles.startBtnInactive
-          }
-        >
-          <Text
-            style={{
-              color: this.state.players.length >= 6 ? "white" : "grey",
-              alignSelf: "center",
-              fontSize: 32
-            }}
-          >
-            Start Game!
-          </Text>
-        </TouchableOpacity>
+        <View>
+          <Button title='Begin Game' onPress={this.beginGame}></Button>
+        </View>
       </View>
     );
   }
