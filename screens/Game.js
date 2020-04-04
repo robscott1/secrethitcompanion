@@ -9,14 +9,24 @@ import ButtonMenu from "../components/ButtonMenu";
 import { NavigationContainer } from "@react-navigation/native";
 
 class GameScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.navVote = this.navVote.bind(this);
+  }
+
+  navVote() {
+    this.props.navigation.navigate('vote');
+  }
+
   render() {
     return (
       <View>
         <FailedVoteCounter />
         <ImageOrTimer />
-        <PlayerList triggerAction={this.props.navigation.navigate} />
+        <PlayerList triggerAction={this.props.navigation.navigate} players={this.props.players}/>
         <Scoreboard />
-        <ButtonMenu />
+        <ButtonMenu vote={this.navVote}/>
       </View>
     );
   }

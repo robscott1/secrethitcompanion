@@ -5,10 +5,16 @@ const initState = {
 const failedVoteReducer = (state = initState, action) => {
     switch(action.type) {
         case 'INCREMENT':
-            return state;
-            break;
-        case 'RESET':
-            return state;
+            if (state.failedVotes ==2) {
+                //enact policy
+                return {
+                    failedVotes: 0
+                };
+            } 
+
+            return {
+                failedVotes: state.failedVotes + 1
+            };
             break;
         default:
             return state;
