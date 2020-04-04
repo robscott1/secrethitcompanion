@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import icon from "../assets/icon.png";
 import {
   View,
   TextInput,
@@ -12,6 +13,19 @@ import PlayerList from "../components/PlayersList";
 import PlayerInputPBar from "../components/PlayerInputPBar";
 
 class StartScreen extends Component {
+  static navigationOptions = () => ({
+    title: 'Add Players',
+    headerStyle: {
+      height: Platform.OS === 'android' ? 54 : 54,
+      backgroundColor: "#434343"
+    },
+    headerTitleStyle: {
+      margin: Platform.OS === 'android' ? 0 : 0,
+      color: 'white'
+    },
+    headerLeft: <Image source={icon} style={styles.imageStyle}/>
+  });
+
   state = {
     entry: "",
     players: []
@@ -73,9 +87,17 @@ class StartScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+  imageStyle: {
+    marginTop: 20,
+    marginLeft: 10,
+    width: 40,
+    height: 40
+  },
   container: {
-    paddingTop: 50,
-    paddingHorizontal: 20
+    paddingTop: 60,
+    paddingHorizontal: 20,
+    backgroundColor: "#FBB969",
+    height: "100%"
   },
   header: {
     flexDirection: "row",
