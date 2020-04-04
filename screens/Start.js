@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Button,
   TouchableOpacity,
-  Text
+  Text,
+  Keyboard
 } from "react-native";
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
@@ -62,6 +63,8 @@ class StartScreen extends Component {
       entry: '',
       appText: ''
     });
+
+    Keyboard.dismiss();
   }
 
   render() {
@@ -132,4 +135,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default StartScreen;
+const mapStateToProps = state => ({
+  players: state.players
+});
+
+export default connect(mapStateToProps)(StartScreen);
