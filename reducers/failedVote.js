@@ -1,7 +1,8 @@
-const failedVoteReducer = (state, action) => {
-    if (typeof state === 'undefined') {
-        return 0;
-    }
+const initState = {
+    failedVotes: 0
+}
+
+const failedVoteReducer = (state = initState, action) => {
     switch(action.type) {
         case 'INCREMENT':
             return state;

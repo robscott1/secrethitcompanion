@@ -6,10 +6,8 @@ class PlayerList extends Component {
   constructor(props) {
     super(props);
   }
-  state = {};
 
   render() {
-    console.log(this.props.players);
     return (
       <View style={styles.container}>
         <FlatList

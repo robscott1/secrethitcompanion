@@ -10,7 +10,10 @@ import {
 } from "react-native";
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
-import playerReducer from "../reducers/player";
+import { connect } from 'react-redux';
+import { addPlayer } from '../actions';
+
+//const players = useSelector(state => state.players);
 
 class StartScreen extends Component {
   constructor(props) {
@@ -23,43 +26,42 @@ class StartScreen extends Component {
 
   state = {
     entry: "",
-    players: [],
     appText: ""
   };
 
   changeTextHandler(text) {
     this.setState({
       entry: text,
-      players: this.state.players,
       appText: this.state.appText
     });
   }
 
   beginGame() {
-    this.props.navigation.navigate('game', { players: this.state.players });
-    if (this.state.players.length < 6) {
+    if (this.props.players.length < 6) {
       console.log('minimum of 6 players');
     } else {
-      this.props.navigation.navigate('game', { players: this.state.players });
+      this.props.navigation.navigate('game');
     }
   }
 
   addPlayer() {
     if (this.state.entry === "") {
       return;
+    } else if (this.props.players.length == 10) {
+      console.log('maximum of 10 players');
     }
 
-    var players = this.state.players;
-
-    players.push({
+    var player = {
       name: this.state.entry,
       chancellor: false,
       president: false,
-      alive: true
-    });
+      alive: true,
+      key: Date.now()
+    };
+
+    this.props.newPlayer(player);
 
     this.setState({
-      players: players,
       entry: '',
       appText: ''
     });
@@ -83,7 +85,7 @@ class StartScreen extends Component {
             onPress={this.addPlayer}>
           </TouchableOpacity>
         </View>
-        <PlayerList players={this.state.players} />
+        <PlayerList players={this.props.players} />
         <View>
           <Button title='Begin Game' onPress={this.beginGame}></Button>
         </View>
@@ -136,7 +138,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-  players: state.players
+    ...state.playerReducer
 });
 
-export default connect(mapStateToProps)(StartScreen);
+const mapDispatchToProps = dispatch => ({
+  newPlayer: (player) => { dispatch(addPlayer(player)) }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(StartScreen);

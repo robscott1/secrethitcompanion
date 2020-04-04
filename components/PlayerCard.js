@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-class EmojiDict extends Component {
+class PlayerCard extends Component {
   constructor(props) {
       super(props);
   }
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default EmojiDict;
+export default PlayerCard;

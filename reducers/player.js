@@ -1,10 +1,16 @@
-const playerReducer = (state, action) => {
-    if (typeof state === 'undefined') {
-        return 0;
-    }
+const initState = {
+    players: []
+}
+
+const playerReducer = (state = initState, action) => {
     switch(action.type) {
         case 'CREATE':
-            return state;
+            let players = state.players;
+            players.push(action.payload);
+            return {
+                ...state,
+                players
+            };
             break
         case 'KILL':
             return state;

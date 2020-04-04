@@ -8,20 +8,12 @@ import Scoreboard from "../components/Scoreboard";
 import ButtonMenu from "../components/ButtonMenu";
 
 class GameScreen extends Component {
-  static navigationOptions = {
-    title: 'hello',
-    headerLeft: null
-  }
-
-  state = {
-  };
-
   render() {
     return (
       <View>
         <FailedVoteCounter />
         <ImageOrTimer />
-        <PlayerList />
+        <PlayerList players={this.props.players}/>
         <Scoreboard />
         <ButtonMenu />
       </View>
@@ -45,4 +37,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export default GameScreen;
+const mapStateToProps = state => ({
+    ...state.playerReducer,
+    ...state.failedVoteReducer
+});
+
+const mapDispatchToProps = dispatch => ({
+  newPlayer: (player) => { dispatch(addPlayer(player)) }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);
+
