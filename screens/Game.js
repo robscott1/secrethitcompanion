@@ -3,24 +3,15 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, Platform } from "react-native";
 import FailedVoteCounter from "../components/FailedVoteCounter";
 import ImageOrTimer from "../components/ImageOrTimer";
-import icon from "../assets/icon.png";
 import PlayerList from "../components/PlayersList";
 import Scoreboard from "../components/Scoreboard";
 import ButtonMenu from "../components/ButtonMenu";
 
 class GameScreen extends Component {
-  static navigationOptions = () => ({
-    title: 'Secret Hitler',
-    headerStyle: {
-      height: Platform.OS === 'android' ? 54 : 54,
-      backgroundColor: "#434343"
-    },
-    headerTitleStyle: {
-      margin: Platform.OS === 'android' ? 0 : 0,
-      color: 'white'
-    },
-    headerLeft: <Image source={icon} style={styles.imageStyle}/>
-  });
+  static navigationOptions = {
+    title: 'hello',
+    headerLeft: null
+  }
 
   state = {
   };
