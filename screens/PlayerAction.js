@@ -5,7 +5,7 @@ import ImageOrTimer from "../components/ImageOrTimer";
 import ElectBtn from "../components/ElectBtn";
 import KillBtn from "../components/KillBtn";
 
-const PlayerAction = props => {
+const PlayerActionScreen = props => {
   return (
     <View style={styles.container}>
       <FailedVoteCounter />
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PlayerAction;
+export default PlayerActionScreen;
