@@ -5,6 +5,7 @@ import ImageOrTimer from "../components/ImageOrTimer";
 import ElectBtn from "../components/ElectBtn";
 import KillBtn from "../components/KillBtn";
 import { render } from "react-dom";
+import { connect } from "react-redux";
 
 class PlayerActionScreen extends Component {
   constructor(props) {

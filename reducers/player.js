@@ -9,52 +9,52 @@ const playerReducer = (state = initState, action) => {
       players.push(action.payload);
       return {
         ...state,
-        players,
+        playerList,
       };
       break;
     case "KILL":
-      let players = state.players;
-      let victim = players.find(payload.id);
+      let playerList = state.players;
+      let victim = playerList.find(payload.id);
       victim.alive = false;
       return {
         ...state,
-        players,
+        playerList,
       };
       break;
 
     case "ELECT":
-      let players = state.players;
+      let playerList1 = state.players;
 
       //un-elect current player
-      let oldChancellor = players.find(function (item) {
+      let oldChancellor = playerList1.find(function (item) {
         item.chancellor === true;
       });
       oldChancellor.chancellor = false;
 
       // elect new player
-      let newChancellor = players.find(payload.id);
+      let newChancellor = playerList.find(payload.id);
       newChancellor.chancellor = true;
       return {
         ...state,
-        players,
+        playerList,
       };
       break;
 
     case "PRESIDENT":
-      let players = state.players;
+      let playerList2 = state.players;
 
       //un-elect current player
-      let oldPresident = players.find(function (item) {
+      let oldPresident = playerList2.find(function (item) {
         item.president === true;
       });
       oldPresident.president = false;
 
       // elect new player
-      let newPresident = players.find(payload.id);
+      let newPresident = playerList.find(payload.id);
       newPresident.president = true;
       return {
         ...state,
-        players,
+        playerList,
       };
       break;
 
