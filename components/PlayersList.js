@@ -20,7 +20,7 @@ class PlayerList extends Component {
           data={this.props.players}
           renderItem={({ item }) => (
             <PlayerCard
-              name={item.name}
+              id={item.id}
               chancellor={item.chancellor}
               president={item.president}
               alive={item.alive}
@@ -31,7 +31,7 @@ class PlayerList extends Component {
           contentContainerStyle={{
             width: "100%",
             justifyContent: "center",
-            alignContent: "center"
+            alignContent: "center",
           }}
         />
       </View>
@@ -42,8 +42,8 @@ class PlayerList extends Component {
 const styles = StyleSheet.create({
   container: {
     height: "50%",
-    padding: 20
-  }
+    padding: 20,
+  },
 });
 
 export default PlayerList;
