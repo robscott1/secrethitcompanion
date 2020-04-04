@@ -18,8 +18,8 @@ export default class App extends Component {
       <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="start?">
-            <Stack.Screen name="Start a New Game" component={StartScreen}></Stack.Screen>
-            <Stack.Screen name="Secret Hitler" component={GameScreen}></Stack.Screen>
+            <Stack.Screen name="start" component={StartScreen} options={{title: 'Add Players'}}></Stack.Screen>
+            <Stack.Screen name="game" component={GameScreen} options={{title: 'Add Players'}}></Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
