@@ -33,14 +33,14 @@ class PlayerActionScreen extends Component {
         <FailedVoteCounter />
         <ImageOrTimer />
         <ElectBtn
-          name={props.player}
+          name={this.props.player}
           style={styles.btn}
-          onPress={this.electChancellor(props.player)}
+          onPress={this.electChancellor(this.props.player)}
         />
         <KillBtn
-          name={props.player}
+          name={this.props.player}
           style={styles.btn}
-          onPress={this.killPlayer(props.player)}
+          onPress={this.killPlayer(this.props.player)}
         />
       </View>
     );

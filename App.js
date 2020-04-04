@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import rootReducer from "./reducers";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import Start from "./screens/Start";
 const Stack = createStackNavigator();
 
 const store = createStore(rootReducer);
