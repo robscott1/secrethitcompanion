@@ -1,8 +1,9 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import GameScreen from "./screens/Game";
 import StartScreen from "./screens/Start";
+import PlayerActionScreen from "./screens/PlayerAction";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers";
@@ -17,13 +18,25 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="start?">
-            <Stack.Screen name="start" component={StartScreen} options={{title: 'Add Players'}}></Stack.Screen>
-            <Stack.Screen name="game" component={GameScreen} options={{title: 'Add Players'}}></Stack.Screen>
+          <Stack.Navigator initialRouteName="start">
+            <Stack.Screen
+              name="start"
+              component={StartScreen}
+              options={{ title: "Add Players" }}
+            ></Stack.Screen>
+            <Stack.Screen
+              name="game"
+              component={GameScreen}
+              options={{ title: "Add Players" }}
+            ></Stack.Screen>
+            <Stack.Screen
+              name="playerAction"
+              component={PlayerActionScreen}
+              options={{ title: "Kill A Bitch" }}
+            ></Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
     );
   }
 }
-

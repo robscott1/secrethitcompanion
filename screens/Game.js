@@ -6,6 +6,7 @@ import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
 import Scoreboard from "../components/Scoreboard";
 import ButtonMenu from "../components/ButtonMenu";
+import { NavigationContainer } from "@react-navigation/native";
 
 class GameScreen extends Component {
   render() {
@@ -13,7 +14,7 @@ class GameScreen extends Component {
       <View>
         <FailedVoteCounter />
         <ImageOrTimer />
-        <PlayerList players={this.props.players}/>
+        <PlayerList triggerAction={this.props.navigation.navigate} />
         <Scoreboard />
         <ButtonMenu />
       </View>
