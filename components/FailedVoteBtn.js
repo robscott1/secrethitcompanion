@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
   unfilled: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FBB969",
     height: 45,
     width: 45,
     borderRadius: 45,
