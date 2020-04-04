@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import GameScreen from "./screens/Game";
 import StartScreen from "./screens/Start";
 import PlayerActionScreen from "./screens/PlayerAction";
+import Vote from "./screens/Vote";
+import motionPassed from "./screens/motionPassed";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers";
@@ -34,6 +36,16 @@ export default class App extends Component {
               component={PlayerActionScreen}
               options={{ title: "Kill A Bitch" }}
             ></Stack.Screen>
+            <Stack.Screen
+              name="vote"
+              component={Vote}
+            >
+            </Stack.Screen>
+            <Stack.Screen
+              name="motionPassed"
+              component={motionPassed}
+            >
+            </Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

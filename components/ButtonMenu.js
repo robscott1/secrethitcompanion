@@ -8,7 +8,7 @@ class ButtonMenu extends Component {
     return (
       <View style={styles.container}>
         <TouchableHighlight style={styles.button}>
-          <Text style={styles.text}>Vote!</Text>
+          <Text style={styles.text} onPress={this.props.vote}>Vote!</Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button}>
           <Text style={styles.text}>Debate!</Text>
