@@ -27,7 +27,7 @@ class PlayerCard extends Component {
           <Text>{position}</Text>
         </View>
         <View style={this.props.alive ? styles.alive : styles.dead}>
-          <Text>{this.props.name}</Text>
+          <Text>{this.props.id}</Text>
         </View>
       </View>
     );
@@ -43,22 +43,22 @@ const styles = StyleSheet.create({
     borderColor: "#434343",
     borderRadius: 5,
     borderWidth: 1,
-    margin: 10
+    margin: 10,
   },
   position: {
     backgroundColor: "#434343",
     color: "#FFF",
-    width: "100%"
+    width: "100%",
   },
   dead: {
     textDecorationLine: "line-through",
     margin: 8,
-    borderRadius: 5
+    borderRadius: 5,
   },
   alive: {
     margin: 8,
-    borderRadius: 5
-  }
+    borderRadius: 5,
+  },
 });
 
 export default PlayerCard;
