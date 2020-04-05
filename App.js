@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import StartScreen from "./screens/Start";
 import PlayerActionScreen from "./screens/PlayerAction";
 import Vote from "./screens/Vote";
@@ -8,6 +9,9 @@ import rootReducer from "./reducers";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Start from "./screens/Start";
+import GameScreen from "./screens/Game";
+import { screensEnabled } from "react-native-screens";
+import Game from "./screens/Game";
 const Stack = createStackNavigator();
 
 const store = createStore(rootReducer);
