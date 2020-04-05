@@ -20,7 +20,7 @@ class PlayerList extends Component {
           data={this.props.players}
           renderItem={({ item }) => (
             <PlayerCard
-              name={item.name}
+              id={item.id}
               chancellor={item.chancellor}
               president={item.president}
               alive={item.alive}

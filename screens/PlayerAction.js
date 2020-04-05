@@ -4,19 +4,48 @@ import FailedVoteCounter from "../components/FailedVoteCounter";
 import ImageOrTimer from "../components/ImageOrTimer";
 import ElectBtn from "../components/ElectBtn";
 import KillBtn from "../components/KillBtn";
+import { render } from "react-dom";
+import { connect } from "react-redux";
 
-const PlayerActionScreen = (props) => {
-  return (
-    <View style={styles.container}>
-      <FailedVoteCounter />
-      <ImageOrTimer />
-      <View style={styles.btnMenu}>
-        <ElectBtn name={props.player} style={styles.btn} />
-        <KillBtn name={props.player} style={styles.btn} />
+class PlayerActionScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.killPlayer = this.killPlayer.bind(this);
+    this.electChancellor = this.electChancellor.bind(this);
+  }
+
+  state = {};
+
+  killPlayer(player) {
+    this.props.killPlayer(player);
+    this.props.navigation.navigate("game");
+  }
+
+  electChancellor(player) {
+    this.props.electChancellor(player);
+    this.props.navigation.navigate("game");
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <FailedVoteCounter />
+        <ImageOrTimer />
+        <ElectBtn
+          name={this.props.player}
+          style={styles.btn}
+          onPress={this.electChancellor(this.props.player)}
+        />
+        <KillBtn
+          name={this.props.player}
+          style={styles.btn}
+          onPress={this.killPlayer(this.props.player)}
+        />
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -29,10 +58,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginVertical: 45,
   },
-  btnMenu: {
-    alignItems: "center",
-    paddingVertical: 75,
+});
+
+const mapStateToProps = (state) => ({
+  ...state.playerReducer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  killPlayer: (player) => {
+    dispatch(killPlayer(player));
+  },
+  electChancellor: (player) => {
+    dispatch(electChancellor(player));
   },
 });
 
-export default PlayerActionScreen;
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerActionScreen);
