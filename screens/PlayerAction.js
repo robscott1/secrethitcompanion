@@ -17,13 +17,18 @@ class PlayerActionScreen extends Component {
 
   state = {};
 
-  killPlayer(player) {
-    this.props.killPlayer(player);
+  // both of these use redux's mapStateToProps to pass
+  // along the array of players
+
+  killPlayer() {
+    console.log("kill player triggered...");
+    this.props.killAPlayer(this.props.player);
     this.props.navigation.navigate("game");
   }
 
-  electChancellor(player) {
-    this.props.electChancellor(player);
+  electChancellor() {
+    console.log("elect chancellor triggered..");
+    this.props.electNewChancellor(this.props.player);
     this.props.navigation.navigate("game");
   }
 
@@ -35,12 +40,12 @@ class PlayerActionScreen extends Component {
         <ElectBtn
           name={this.props.player}
           style={styles.btn}
-          onPress={this.electChancellor(this.props.player)}
+          onPress={this.propos.electNewChancellor}
         />
         <KillBtn
           name={this.props.player}
           style={styles.btn}
-          onPress={this.killPlayer(this.props.player)}
+          onPress={this.killPlayer}
         />
       </View>
     );
@@ -65,10 +70,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  killPlayer: (player) => {
+  killAPlayer: (player) => {
     dispatch(killPlayer(player));
   },
-  electChancellor: (player) => {
+  electNewChancellor: (player) => {
     dispatch(electChancellor(player));
   },
 });

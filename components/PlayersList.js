@@ -5,12 +5,6 @@ import PlayerCard from "./PlayerCard";
 class PlayerList extends Component {
   constructor(props) {
     super(props);
-
-    this.triggerAction = this.triggerAction.bind(this);
-  }
-
-  triggerAction(item) {
-    this.props.triggerAction("playerAction");
   }
 
   render() {
@@ -24,7 +18,7 @@ class PlayerList extends Component {
               chancellor={item.chancellor}
               president={item.president}
               alive={item.alive}
-              onPress={this.triggerAction}
+              handlePress={this.props.handlePress}
             />
           )}
           numColumns={2}

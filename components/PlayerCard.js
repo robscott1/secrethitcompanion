@@ -8,6 +8,12 @@ import {
 class PlayerCard extends Component {
   constructor(props) {
     super(props);
+
+    this.handlePress = this.handlePress.bind(this);
+  }
+
+  handlePress() {
+    this.props.handlePress;
   }
 
   state = {};
@@ -30,7 +36,10 @@ class PlayerCard extends Component {
         <View style={styles.position}>
           <Text>{position}</Text>
         </View>
-        <TouchableOpacity style={this.props.alive ? styles.alive : styles.dead}>
+        <TouchableOpacity
+          style={this.props.alive ? styles.alive : styles.dead}
+          onPress={this.props.handlePress}
+        >
           <Text>{this.props.id}</Text>
         </TouchableOpacity>
       </View>

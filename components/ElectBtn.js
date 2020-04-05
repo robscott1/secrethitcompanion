@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 const ElectBtn = (props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={props.onPress}>
         <Text>Elect Matt Cuento as Chancellor</Text>
       </TouchableOpacity>
     </View>

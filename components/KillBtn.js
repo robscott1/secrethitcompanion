@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 const KillBtn = (props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={props.onPress}>
         <Text>Kill Matt Cuento </Text>
       </TouchableOpacity>
     </View>

@@ -13,10 +13,15 @@ class GameScreen extends Component {
     super(props);
 
     this.navVote = this.navVote.bind(this);
+    this.navAction = this.navAction.bind(this);
   }
 
   navVote() {
-    this.props.navigation.navigate('vote');
+    this.props.navigation.navigate("vote");
+  }
+
+  navAction() {
+    this.props.navigation.navigate("playerAction");
   }
 
   render() {
@@ -24,9 +29,9 @@ class GameScreen extends Component {
       <View>
         <FailedVoteCounter />
         <ImageOrTimer />
-        <PlayerList triggerAction={this.props.navigation.navigate} players={this.props.players}/>
+        <PlayerList handlePress={this.navAction} players={this.props.players} />
         <Scoreboard />
-        <ButtonMenu vote={this.navVote}/>
+        <ButtonMenu vote={this.navVote} />
       </View>
     );
   }
@@ -37,25 +42,26 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 10,
     width: 40,
-    height: 40
+    height: 40,
   },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FBB969",
-    height: "100%"
-  }
+    height: "100%",
+  },
 });
 
-const mapStateToProps = state => ({
-    ...state.playerReducer,
-    ...state.failedVoteReducer
+const mapStateToProps = (state) => ({
+  ...state.playerReducer,
+  ...state.failedVoteReducer,
 });
 
-const mapDispatchToProps = dispatch => ({
-  newPlayer: (player) => { dispatch(addPlayer(player)) }
+const mapDispatchToProps = (dispatch) => ({
+  newPlayer: (player) => {
+    dispatch(addPlayer(player));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);
-
