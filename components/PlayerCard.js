@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import {
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 
 class PlayerCard extends Component {
   constructor(props) {
@@ -26,9 +30,9 @@ class PlayerCard extends Component {
         <View style={styles.position}>
           <Text>{position}</Text>
         </View>
-        <View style={this.props.alive ? styles.alive : styles.dead}>
+        <TouchableOpacity style={this.props.alive ? styles.alive : styles.dead}>
           <Text>{this.props.id}</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }
