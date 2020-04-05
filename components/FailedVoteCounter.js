@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Button } from "react-native";
 import FailedVoteBtn from "./FailedVoteBtn";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 class FailedVoteCounter extends Component {
   render() {
@@ -20,16 +20,15 @@ class FailedVoteCounter extends Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    paddingLeft: 30,
-    paddingTop: 25
-  }
+    height: 60,
+    alignSelf: "center",
+    paddingTop: 10,
+  },
 });
 
-const mapStateToProps = state => ({
-  ...state.failedVoteReducer
+const mapStateToProps = (state) => ({
+  ...state.failedVoteReducer,
 });
 
-const mapDispatchToProps = dispatch => ({
-  
-});
+const mapDispatchToProps = (dispatch) => ({});
 export default connect(mapStateToProps, mapDispatchToProps)(FailedVoteCounter);

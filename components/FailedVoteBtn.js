@@ -29,13 +29,12 @@ const styles = StyleSheet.create({
   unfilled: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FBB969",
     height: 45,
     width: 45,
     borderRadius: 45,
     borderColor: "#8ECEDD",
     borderWidth: 3,
-    marginHorizontal: 30
+    marginHorizontal: 30,
   },
   filled: {
     justifyContent: "center",
@@ -46,8 +45,8 @@ const styles = StyleSheet.create({
     borderRadius: 45,
     borderColor: "#6592BC",
     borderWidth: 3,
-    marginHorizontal: 30
-  }
+    marginHorizontal: 30,
+  },
 });
 
 export default FailedVoteBtn;
