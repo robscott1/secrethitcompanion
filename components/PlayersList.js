@@ -31,7 +31,7 @@ class PlayerList extends Component {
           contentContainerStyle={{
             width: "100%",
             justifyContent: "center",
-            alignContent: "center"
+            alignContent: "center",
           }}
         />
       </View>
@@ -42,8 +42,8 @@ class PlayerList extends Component {
 const styles = StyleSheet.create({
   container: {
     height: "50%",
-    padding: 20
-  }
+    padding: 20,
+  },
 });
 
 export default PlayerList;

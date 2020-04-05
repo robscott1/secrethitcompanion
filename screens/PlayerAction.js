@@ -5,13 +5,15 @@ import ImageOrTimer from "../components/ImageOrTimer";
 import ElectBtn from "../components/ElectBtn";
 import KillBtn from "../components/KillBtn";
 
-const PlayerActionScreen = props => {
+const PlayerActionScreen = (props) => {
   return (
     <View style={styles.container}>
       <FailedVoteCounter />
       <ImageOrTimer />
-      <ElectBtn name={props.name} style={styles.btn} />
-      <KillBtn name={props.name} style={styles.btn} />
+      <View style={styles.btnMenu}>
+        <ElectBtn name={props.player} style={styles.btn} />
+        <KillBtn name={props.player} style={styles.btn} />
+      </View>
     </View>
   );
 };
@@ -21,12 +23,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#434343",
     height: "100%",
     width: "100%",
-    padding: 5
+    padding: 5,
   },
   btn: {
     paddingHorizontal: 20,
-    marginVertical: 45
-  }
+    marginVertical: 45,
+  },
+  btnMenu: {
+    alignItems: "center",
+    paddingVertical: 75,
+  },
 });
 
 export default PlayerActionScreen;

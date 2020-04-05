@@ -22,30 +22,20 @@ export default class App extends Component {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="start">
             <Stack.Screen
-              name="start"
-              component={StartScreen}
-              options={{ title: "Add Players" }}
+              name="Kill A Bitch"
+              component={PlayerActionScreen}
+              options={{ title: "Kill" }}
             ></Stack.Screen>
             <Stack.Screen
               name="game"
               component={GameScreen}
               options={{ title: "Add Players" }}
             ></Stack.Screen>
-            <Stack.Screen
-              name="playerAction"
-              component={PlayerActionScreen}
-              options={{ title: "Kill A Bitch" }}
-            ></Stack.Screen>
-            <Stack.Screen
-              name="vote"
-              component={Vote}
-            >
-            </Stack.Screen>
+            <Stack.Screen name="vote" component={Vote}></Stack.Screen>
             <Stack.Screen
               name="motionPassed"
               component={motionPassed}
-            >
-            </Stack.Screen>
+            ></Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

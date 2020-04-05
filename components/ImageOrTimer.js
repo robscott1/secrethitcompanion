@@ -18,8 +18,8 @@ class ImageOrTimer extends Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    paddingTop: 10
-  }
+    paddingTop: 20,
+  },
 });
 
 export default ImageOrTimer;
