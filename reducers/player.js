@@ -6,10 +6,11 @@ const playerReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE":
       let players = state.players;
+      console.log("Dbg - item name: " + action.payload.name);
       players.push(action.payload);
       return {
         ...state,
-        playerList,
+        players,
       };
       break;
     case "KILL":
