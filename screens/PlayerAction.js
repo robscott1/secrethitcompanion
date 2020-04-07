@@ -6,13 +6,15 @@ import ElectBtn from "../components/ElectBtn";
 import KillBtn from "../components/KillBtn";
 import { render } from "react-dom";
 import { connect } from "react-redux";
+import { electChancellor } from "../actions";
+import { killPlayer } from "../actions";
 
 class PlayerActionScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.killPlayer = this.killPlayer.bind(this);
-    this.electChancellor = this.electChancellor.bind(this);
+    this.kill = this.kill.bind(this);
+    this.elect = this.elect.bind(this);
   }
 
   state = {};
@@ -20,15 +22,15 @@ class PlayerActionScreen extends Component {
   // both of these use redux's mapStateToProps to pass
   // along the array of players
 
-  killPlayer() {
+  kill(player) {
     console.log("kill player triggered...");
-    this.props.killAPlayer(this.props.player);
+    this.props.killAPlayer(player);
     this.props.navigation.navigate("game");
   }
 
-  electChancellor() {
+  elect(player) {
     console.log("elect chancellor triggered..");
-    this.props.electNewChancellor(this.props.player);
+    this.props.electNewChancellor(player);
     this.props.navigation.navigate("game");
   }
 
@@ -38,14 +40,14 @@ class PlayerActionScreen extends Component {
         <FailedVoteCounter />
         <ImageOrTimer />
         <ElectBtn
-          name={this.props.player}
+          name={"Rob Scott"}
           style={styles.btn}
-          onPress={this.propos.electNewChancellor}
+          //onPress={this.elect(item)}
         />
         <KillBtn
-          name={this.props.player}
+          name={"Rob Scott"}
           style={styles.btn}
-          onPress={this.killPlayer}
+          //onPress={this.kill(item)}
         />
       </View>
     );
@@ -71,9 +73,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   killAPlayer: (player) => {
+    console.log("kill player triggered");
     dispatch(killPlayer(player));
   },
   electNewChancellor: (player) => {
+    console.log("elect chancellor triggered");
     dispatch(electChancellor(player));
   },
 });

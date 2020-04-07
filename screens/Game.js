@@ -62,6 +62,14 @@ const mapDispatchToProps = (dispatch) => ({
   newPlayer: (player) => {
     dispatch(addPlayer(player));
   },
+  killAPlayer: (player) => {
+    console.log("kill player triggered");
+    dispatch(killPlayer(player));
+  },
+  electNewChancellor: (player) => {
+    console.log("elect chancellor triggered");
+    dispatch(electChancellor(player));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);

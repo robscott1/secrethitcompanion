@@ -8,12 +8,6 @@ import {
 class PlayerCard extends Component {
   constructor(props) {
     super(props);
-
-    this.handlePress = this.handlePress.bind(this);
-  }
-
-  handlePress() {
-    this.props.handlePress;
   }
 
   state = {};

@@ -18,6 +18,7 @@ const store = createStore(rootReducer);
 
 export default class App extends Component {
   render() {
+    console.log(React.version);
     return (
       <Provider store={store}>
         <NavigationContainer>

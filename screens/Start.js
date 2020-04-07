@@ -45,6 +45,7 @@ class StartScreen extends Component {
   }
 
   addPlayer() {
+    console.log("DBG Console - this.props.players: " + this.props.players);
     if (this.state.entry === "") {
       return;
     } else if (this.props.players.length == 10) {
@@ -145,6 +146,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   newPlayer: (player) => {
     dispatch(addPlayer(player));
+  },
+  killAPlayer: (player) => {
+    dispatch(killPlayer(player));
+  },
+  electNewChancellor: (player) => {
+    dispatch(electChancellor(player));
   },
 });
 

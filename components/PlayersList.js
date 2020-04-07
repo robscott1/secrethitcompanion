@@ -1,10 +1,22 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, FlatList, Button } from "react-native";
 import PlayerCard from "./PlayerCard";
+import { connect } from "react-redux";
+import { spotlight } from "../actions";
 
 class PlayerList extends Component {
   constructor(props) {
     super(props);
+
+    this.handlePress = this.handlePress.bind(this);
+  }
+
+  handlePress(player) {
+    console.log(
+      "**DBG Console - PList: handlePress triggered.. " + player.name
+    );
+    this.props.putOnSpotlight(player);
+    this.props.handlePress;
   }
 
   render() {
@@ -40,4 +52,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlayerList;
+const mapStateToProps = (state) => ({
+  ...state.playerReducer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  putOnSpotlight: (player) => {
+    dispatch(spotlight(player));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerList);

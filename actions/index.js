@@ -25,3 +25,10 @@ export const makePresident = (payload) => {
     payload,
   };
 };
+
+export const spotlight = (payload) => {
+  return {
+    type: "SPOTLIGHT",
+    payload,
+  };
+};

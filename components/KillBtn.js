@@ -5,7 +5,7 @@ const KillBtn = (props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.btn} onPress={props.onPress}>
-        <Text>Kill Matt Cuento </Text>
+        <Text>Kill {props.name} </Text>
       </TouchableOpacity>
     </View>
   );
