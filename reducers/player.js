@@ -1,6 +1,6 @@
 const initState = {
   players: [],
-  spotlight: null,
+  spotLight: "init",
 };
 
 const playerReducer = (state = initState, action) => {
@@ -9,12 +9,9 @@ const playerReducer = (state = initState, action) => {
       let players = state.players;
       console.log("Dbg - item name: " + action.payload.id);
       players.push(action.payload);
-
-      var spotLight = null;
       return {
         ...state,
         players,
-        spotLight,
       };
       break;
 
@@ -24,11 +21,9 @@ const playerReducer = (state = initState, action) => {
       let victim = playerList.find(action.payload.id);
       victim.alive = false;
 
-      var spotLight = null;
       return {
         ...state,
         playerList,
-        spotLight,
       };
       break;
 
@@ -46,14 +41,12 @@ const playerReducer = (state = initState, action) => {
       // oldChancellor.chancellor = false;
 
       // elect new player
-      let newChancellor = playerList1.find(state.spotlight.id);
+      let newChancellor = playerList1.find(state.spotLight.id);
       newChancellor.chancellor = true;
 
-      var spotLight = null;
       return {
         ...state,
         playerList1,
-        spotLight,
       };
       break;
 
@@ -67,20 +60,19 @@ const playerReducer = (state = initState, action) => {
       oldPresident.president = false;
 
       // elect new player
-      let newPresident = playerList.find(state.spotlight.id);
+      let newPresident = playerList.find(state.spotLight.id);
       newPresident.president = true;
 
-      var spotLight = null;
       return {
         ...state,
         playerList2,
-        spotLight,
       };
       break;
 
     case "SPOTLIGHT":
       var pList = state.players;
       var spotLight = action.payload;
+
       return {
         ...state,
         pList,

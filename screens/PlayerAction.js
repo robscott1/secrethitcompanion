@@ -35,17 +35,18 @@ class PlayerActionScreen extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <FailedVoteCounter />
         <ImageOrTimer />
         <ElectBtn
-          name={"Rob Scott"}
+          name={this.props.spotLight}
           style={styles.btn}
           //onPress={this.elect(item)}
         />
         <KillBtn
-          name={"Rob Scott"}
+          name={this.props.spotLight}
           style={styles.btn}
           //onPress={this.kill(item)}
         />

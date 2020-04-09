@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, FlatList, Button } from "react-native";
 import PlayerCard from "./PlayerCard";
-import { connect } from "react-redux";
-import { spotlight } from "../actions";
 
 class PlayerList extends Component {
   constructor(props) {
@@ -11,12 +9,8 @@ class PlayerList extends Component {
     this.handlePress = this.handlePress.bind(this);
   }
 
-  handlePress(player) {
-    console.log(
-      "**DBG Console - PList: handlePress triggered.. " + player.name
-    );
-    this.props.putOnSpotlight(player);
-    this.props.handlePress;
+  handlePress() {
+    console.log("press handled");
   }
 
   render() {
@@ -30,7 +24,7 @@ class PlayerList extends Component {
               chancellor={item.chancellor}
               president={item.president}
               alive={item.alive}
-              handlePress={this.props.handlePress}
+              nav={this.props.nav}
             />
           )}
           numColumns={2}
@@ -52,14 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => ({
-  ...state.playerReducer,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  putOnSpotlight: (player) => {
-    dispatch(spotlight(player));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerList);
+export default PlayerList;

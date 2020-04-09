@@ -29,7 +29,11 @@ class GameScreen extends Component {
       <View>
         <FailedVoteCounter />
         <ImageOrTimer />
-        <PlayerList handlePress={this.navAction} players={this.props.players} />
+        <PlayerList
+          handlePress={this.navAction}
+          players={this.props.players}
+          nav={this.props.navigation}
+        />
         <Scoreboard />
         <ButtonMenu vote={this.navVote} />
       </View>

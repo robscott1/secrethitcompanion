@@ -4,13 +4,21 @@ import {
   TouchableHighlight,
   TouchableOpacity,
 } from "react-native-gesture-handler";
+import { spotlight } from "../actions";
+import { connect } from "react-redux";
 
 class PlayerCard extends Component {
   constructor(props) {
     super(props);
+
+    this.handleBtnPress = this.handleBtnPress.bind(this);
   }
 
-  state = {};
+  handleBtnPress() {
+    this.props.putOnSpotlight(this.props.id);
+    console.log("DBG Console - playercard id... " + this.props.id);
+    this.props.nav.navigate("playerAction");
+  }
 
   render() {
     var position = "";
@@ -32,7 +40,7 @@ class PlayerCard extends Component {
         </View>
         <TouchableOpacity
           style={this.props.alive ? styles.alive : styles.dead}
-          onPress={this.props.handlePress}
+          onPress={this.handleBtnPress} // can only do one or the other...
         >
           <Text>{this.props.id}</Text>
         </TouchableOpacity>
@@ -68,4 +76,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlayerCard;
+const mapStateToProps = (state) => ({
+  ...state.playerReducer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  putOnSpotlight: (player) => {
+    dispatch(spotlight(player));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerCard);
