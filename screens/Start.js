@@ -38,7 +38,7 @@ class StartScreen extends Component {
 
   beginGame() {
     if (this.props.players.length < 6) {
-      console.log("minimum of 6 players");
+      alert('Add at least 6 players to start!');
     } else {
       this.props.navigation.navigate("game");
     }
@@ -49,7 +49,7 @@ class StartScreen extends Component {
     if (this.state.entry === "") {
       return;
     } else if (this.props.players.length == 10) {
-      console.log("maximum of 10 players");
+      alert('Cannot add more than 10 players!');
     }
 
     var player = {

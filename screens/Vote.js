@@ -1,3 +1,4 @@
+import styles from './VoteStyles';
 import React, { Component } from 'react';
 import {
   View,
@@ -22,7 +23,7 @@ class Vote extends Component {
 
     handleTime() {
         if (this.state.time == -3) {
-            this.props.navigation.navigate('motionPassed');
+            this.props.navigation.navigate('MotionPassed');
         }
 
         this.setState({
@@ -46,28 +47,19 @@ class Vote extends Component {
 
     render() {
         var timerText = this.state.time;
+        var viewStyle = styles.countdownView;
+
         if (this.state.time < 1) {
             timerText = "Vote!";
+            viewStyle = styles.voteView;
         }       
+
         return (
-             <View>
-                <Text>{timerText}</Text>
+             <View style={viewStyle}>
+                <Text style={styles.countdownText}>{timerText}</Text>
              </View>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#434343',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    timerText: {
-
-    }
-})
 
 export default Vote;

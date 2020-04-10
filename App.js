@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
+import GameScreen from "./screens/Game";
+import ChooseChancellor from "./screens/ChooseChancellor";
 import StartScreen from "./screens/Start";
 import PlayerActionScreen from "./screens/PlayerAction";
 import Vote from "./screens/Vote";
-import motionPassed from "./screens/motionPassed";
+import MotionPassed from "./screens/MotionPassed";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers";
@@ -30,22 +33,32 @@ export default class App extends Component {
             <Stack.Screen
               name="start"
               component={StartScreen}
+            ></Stack.Screen>
+            <Stack.Screen
+              name="chooseChancellor"
+              component={ChooseChancellor}
+            ></Stack.Screen>
+            <Stack.Screen
+              name="playerAction"
+              component={PlayerActionScreen}
               options={{ title: "Add Players" }}
             ></Stack.Screen>
             <Stack.Screen
               name="game"
               component={GameScreen}
-              options={{ title: "Add Players" }}
+            ></Stack.Screen>
+            <Stack.Screen 
+              name="vote" 
+              component={Vote}
             ></Stack.Screen>
             <Stack.Screen
               name="playerAction"
               component={PlayerActionScreen}
               options={{ title: "Kill A Bitch" }}
             ></Stack.Screen>
-            <Stack.Screen name="vote" component={Vote}></Stack.Screen>
             <Stack.Screen
-              name="motionPassed"
-              component={motionPassed}
+              name="MotionPassed"
+              component={MotionPassed}
             ></Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
