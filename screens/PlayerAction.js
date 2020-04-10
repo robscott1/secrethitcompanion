@@ -4,19 +4,56 @@ import FailedVoteCounter from "../components/FailedVoteCounter";
 import ImageOrTimer from "../components/ImageOrTimer";
 import ElectBtn from "../components/ElectBtn";
 import KillBtn from "../components/KillBtn";
+import { render } from "react-dom";
+import { connect } from "react-redux";
+import { electChancellor } from "../actions";
+import { killPlayer } from "../actions";
 
-const PlayerActionScreen = (props) => {
-  return (
-    <View style={styles.container}>
-      <FailedVoteCounter />
-      <ImageOrTimer />
-      <View style={styles.btnMenu}>
-        <ElectBtn name={props.player} style={styles.btn} />
-        <KillBtn name={props.player} style={styles.btn} />
+class PlayerActionScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.kill = this.kill.bind(this);
+    this.elect = this.elect.bind(this);
+  }
+
+  state = {};
+
+  // both of these use redux's mapStateToProps to pass
+  // along the array of players
+
+  kill(player) {
+    console.log("kill player triggered...");
+    this.props.killAPlayer(player);
+    this.props.navigation.navigate("game");
+  }
+
+  elect(player) {
+    console.log("elect chancellor triggered..");
+    this.props.electNewChancellor(player);
+    this.props.navigation.navigate("game");
+  }
+
+  render() {
+    console.log(this.props);
+    return (
+      <View style={styles.container}>
+        <FailedVoteCounter />
+        <ImageOrTimer />
+        <ElectBtn
+          name={this.props.spotLight}
+          style={styles.btn}
+          //onPress={this.elect(item)}
+        />
+        <KillBtn
+          name={this.props.spotLight}
+          style={styles.btn}
+          //onPress={this.kill(item)}
+        />
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -29,10 +66,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginVertical: 45,
   },
-  btnMenu: {
-    alignItems: "center",
-    paddingVertical: 75,
+});
+
+const mapStateToProps = (state) => ({
+  ...state.playerReducer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  killAPlayer: (player) => {
+    console.log("kill player triggered");
+    dispatch(killPlayer(player));
+  },
+  electNewChancellor: (player) => {
+    console.log("elect chancellor triggered");
+    dispatch(electChancellor(player));
   },
 });
 
-export default PlayerActionScreen;
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerActionScreen);
