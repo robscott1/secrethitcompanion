@@ -6,11 +6,11 @@ class PlayerList extends Component {
   constructor(props) {
     super(props);
 
-    this.triggerAction = this.triggerAction.bind(this);
+    this.handlePress = this.handlePress.bind(this);
   }
 
-  triggerAction(item) {
-    this.props.triggerAction("playerAction");
+  handlePress() {
+    console.log("press handled");
   }
 
   render() {
@@ -20,11 +20,11 @@ class PlayerList extends Component {
           data={this.props.players}
           renderItem={({ item }) => (
             <PlayerCard
-              name={item.name}
+              id={item.id}
               chancellor={item.chancellor}
               president={item.president}
               alive={item.alive}
-              onPress={this.triggerAction}
+              nav={this.props.nav}
             />
           )}
           numColumns={2}

@@ -6,12 +6,12 @@ import {
   Button,
   TouchableOpacity,
   Text,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
-import { connect } from 'react-redux';
-import { addPlayer } from '../actions';
+import { connect } from "react-redux";
+import { addPlayer } from "../actions";
 
 //const players = useSelector(state => state.players);
 
@@ -26,44 +26,45 @@ class StartScreen extends Component {
 
   state = {
     entry: "",
-    appText: ""
+    appText: "",
   };
 
   changeTextHandler(text) {
     this.setState({
       entry: text,
-      appText: this.state.appText
+      appText: this.state.appText,
     });
   }
 
   beginGame() {
     if (this.props.players.length < 6) {
-      console.log('minimum of 6 players');
+      console.log("minimum of 6 players");
     } else {
-      this.props.navigation.navigate('game');
+      this.props.navigation.navigate("game");
     }
   }
 
   addPlayer() {
+    console.log("DBG Console - this.props.players: " + this.props.players);
     if (this.state.entry === "") {
       return;
     } else if (this.props.players.length == 10) {
-      console.log('maximum of 10 players');
+      console.log("maximum of 10 players");
     }
 
     var player = {
-      name: this.state.entry,
+      id: this.state.entry,
       chancellor: false,
       president: false,
       alive: true,
-      key: Date.now()
+      key: Date.now(),
     };
 
     this.props.newPlayer(player);
 
     this.setState({
-      entry: '',
-      appText: ''
+      entry: "",
+      appText: "",
     });
 
     Keyboard.dismiss();
@@ -80,14 +81,15 @@ class StartScreen extends Component {
             value={this.state.entry}
             onChangeText={this.changeTextHandler}
           />
-          <TouchableOpacity title='add'
+          <TouchableOpacity
+            title="add"
             style={styles.button}
-            onPress={this.addPlayer}>
-          </TouchableOpacity>
+            onPress={this.addPlayer}
+          ></TouchableOpacity>
         </View>
         <PlayerList players={this.props.players} />
         <View>
-          <Button title='Begin Game' onPress={this.beginGame}></Button>
+          <Button title="Begin Game" onPress={this.beginGame}></Button>
         </View>
       </View>
     );
@@ -99,19 +101,19 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 10,
     width: 40,
-    height: 40
+    height: 40,
   },
   container: {
     paddingTop: 60,
     paddingHorizontal: 20,
     backgroundColor: "#FBB969",
-    height: "100%"
+    height: "100%",
   },
   header: {
     flexDirection: "row",
     width: "100%",
     alignItems: "center",
-    marginTop: 30
+    marginTop: 30,
   },
   input: {
     height: "100%",
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     shadowOpacity: 0.5,
     alignContent: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   button: {
     width: "25%",
@@ -133,16 +135,24 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     marginHorizontal: 5,
     alignItems: "center",
-    shadowOpacity: 0.5
-  }
+    shadowOpacity: 0.5,
+  },
 });
 
-const mapStateToProps = state => ({
-    ...state.playerReducer
+const mapStateToProps = (state) => ({
+  ...state.playerReducer,
 });
 
-const mapDispatchToProps = dispatch => ({
-  newPlayer: (player) => { dispatch(addPlayer(player)) }
+const mapDispatchToProps = (dispatch) => ({
+  newPlayer: (player) => {
+    dispatch(addPlayer(player));
+  },
+  killAPlayer: (player) => {
+    dispatch(killPlayer(player));
+  },
+  electNewChancellor: (player) => {
+    dispatch(electChancellor(player));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StartScreen);

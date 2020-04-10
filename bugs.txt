@@ -1,0 +1,4 @@
+Start Screen: Add Button
+    Issue: Im logging the state.players to console when players are 
+    added, and the first item is not added. Essentially, the 'add' button is 
+    one player behind. Had to hit 'add' one more time to get all 6 players on
