@@ -16,11 +16,7 @@ import { screensEnabled } from "react-native-screens";
 import Game from "./screens/Game";
 const Stack = createStackNavigator();
 
-const store = createStore(
-  rootReducer,
-  [],
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(rootReducer);
 
 export default class App extends Component {
   render() {
