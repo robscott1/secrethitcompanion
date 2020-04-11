@@ -12,7 +12,6 @@ import rootReducer from "./reducers";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Start from "./screens/Start";
-import GameScreen from "./screens/Game";
 import { screensEnabled } from "react-native-screens";
 import Game from "./screens/Game";
 const Stack = createStackNavigator();
@@ -25,15 +24,11 @@ const store = createStore(
 
 export default class App extends Component {
   render() {
-    console.log(React.version);
     return (
       <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="start">
-            <Stack.Screen
-              name="start"
-              component={StartScreen}
-            ></Stack.Screen>
+            <Stack.Screen name="start" component={StartScreen}></Stack.Screen>
             <Stack.Screen
               name="chooseChancellor"
               component={ChooseChancellor}
@@ -43,19 +38,8 @@ export default class App extends Component {
               component={PlayerActionScreen}
               options={{ title: "Add Players" }}
             ></Stack.Screen>
-            <Stack.Screen
-              name="game"
-              component={GameScreen}
-            ></Stack.Screen>
-            <Stack.Screen 
-              name="vote" 
-              component={Vote}
-            ></Stack.Screen>
-            <Stack.Screen
-              name="playerAction"
-              component={PlayerActionScreen}
-              options={{ title: "Kill A Bitch" }}
-            ></Stack.Screen>
+            <Stack.Screen name="game" component={GameScreen}></Stack.Screen>
+            <Stack.Screen name="vote" component={Vote}></Stack.Screen>
             <Stack.Screen
               name="MotionPassed"
               component={MotionPassed}

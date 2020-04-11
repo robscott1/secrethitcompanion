@@ -16,7 +16,6 @@ class PlayerCard extends Component {
 
   handleBtnPress() {
     this.props.putOnSpotlight(this.props.id);
-    console.log("DBG Console - playercard id... " + this.props.id);
     this.props.nav.navigate("playerAction");
   }
 
