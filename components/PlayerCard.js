@@ -39,7 +39,7 @@ class PlayerCard extends Component {
         </View>
         <TouchableOpacity
           style={this.props.alive ? styles.alive : styles.dead}
-          onPress={this.handleBtnPress} // can only do one or the other...
+          onPress={this.handleBtnPress}
         >
           <Text>{this.props.id}</Text>
         </TouchableOpacity>
