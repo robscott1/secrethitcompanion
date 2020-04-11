@@ -60,13 +60,13 @@ class Scoreboard extends Component {
         </View>
         <View style={styles.btnCol}>
           <TouchableOpacity
-            style={styles.plusBtn}
+            style={styles.lPlusBtn}
             onPress={this.incrementLScore}
           >
             <Text> + </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.plusBtn}
+            style={styles.fPlusBtn}
             onPress={this.incrementFScore}
           >
             <Text> + </Text>
@@ -80,7 +80,7 @@ class Scoreboard extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
-    width: "85%",
+    width: "90%",
   },
   row: {
     flexDirection: "row",
@@ -89,12 +89,19 @@ const styles = StyleSheet.create({
     width: 55,
     alignItems: "center",
     height: "100%",
-    paddingRight: 10,
+    paddingRight: 30,
   },
-  plusBtn: {
+  fPlusBtn: {
     marginTop: 5,
     marginBottom: 15, //custom fit, wont reuse
     borderWidth: 1,
+    backgroundColor: "#BE5A48",
+  },
+  lPlusBtn: {
+    marginTop: 6,
+    marginBottom: 15, //custom fit, wont reuse
+    borderWidth: 1,
+    backgroundColor: "#6592BC",
   },
 });
 
