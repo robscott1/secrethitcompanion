@@ -41,8 +41,8 @@ class PlayerList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: "50%",
-    padding: 20,
+    height: "45%",
+    padding: 10,
   },
 });
 

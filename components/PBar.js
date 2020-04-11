@@ -17,7 +17,7 @@ class PBar extends Component {
           width: "100%",
           borderWith: 1,
           verticalAlign: "middle",
-          paddingBottom: 3
+          paddingBottom: 3,
         }}
       >
         <View
@@ -26,8 +26,8 @@ class PBar extends Component {
             background: "beige",
             height: "100%",
             backgroundColor: "blue",
-            width: "50%",
-            backgroundColor: this.props.color
+            width: `${this.props.percentage}%`,
+            backgroundColor: this.props.color,
           }}
         ></View>
       </View>

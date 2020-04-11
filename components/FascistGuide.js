@@ -16,13 +16,13 @@ class FascistGuide extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 20,
-    backgroundColor: "#F2654B"
+    backgroundColor: "#F2654B",
   },
   boardGuide: {
     width: "50%",
     height: "100%",
-    backgroundColor: "#BE5A48"
-  }
+    backgroundColor: "#BE5A48",
+  },
 });
 
 export default FascistGuide;
