@@ -20,14 +20,14 @@ class Scoreboard extends Component {
   };
 
   alertWinner() {
-    if (this.state.fasScore == 5) {
+    if (this.state.fasScore == 4) {
       var string = "Fascist have taken over!";
     } else {
       var string = "Liberals stand strong!";
     }
 
     Alert.alert("Victory!", string, [
-      { text: "New Game", onPress: () => console.log("New Game pressed") },
+      { text: "New Game", onPress: this.props.newGame },
       {
         text: "Cancel",
         onPress: () => console.log("Cancel Pressed"),
@@ -38,7 +38,7 @@ class Scoreboard extends Component {
   }
 
   incrementFScore() {
-    if (this.state.fasScore < 5) {
+    if (this.state.fasScore <= 4) {
       let lib = this.state.libScore;
       let fas = this.state.fasScore;
 
@@ -48,15 +48,16 @@ class Scoreboard extends Component {
         libScore: lib,
         fasScore: newFas,
       });
+      console.log("state fasc score: " + this.state.fasScore);
 
-      if (this.state.libScore === 5) {
+      if (this.state.fasScore === 4) {
         this.alertWinner();
       }
     }
   }
 
   incrementLScore() {
-    if (this.state.libScore <= 4) {
+    if (this.state.libScore <= 5) {
       let lib = this.state.libScore;
       let fas = this.state.fasScore;
 
@@ -67,7 +68,7 @@ class Scoreboard extends Component {
         fasScore: fas,
       });
 
-      if (this.state.libScore === 4) {
+      if (this.state.libScore === 5) {
         this.alertWinner();
       }
     }
@@ -78,13 +79,13 @@ class Scoreboard extends Component {
       <View style={styles.row}>
         <View style={styles.container}>
           <PBar
-            percentage={(this.state.libScore / 5) * 100}
+            percentage={(this.state.libScore / 6) * 100}
             color={"#6592BC"}
           />
           <LiberalGuide />
           <View style={{ height: 15 }} />
           <PBar
-            percentage={(this.state.fasScore / 6) * 100}
+            percentage={(this.state.fasScore / 5) * 100}
             color={"#BE5A48"}
           />
           <FascistGuide />
