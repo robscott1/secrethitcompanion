@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Platform } from "react-native";
+import { View, Text, StyleSheet, Platform, Alert } from "react-native";
 import FailedVoteCounter from "../components/FailedVoteCounter";
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
@@ -13,7 +13,7 @@ class GameScreen extends Component {
     super(props);
 
     this.navVote = this.navVote.bind(this);
-    this.navAction = this.navAction.bind(this);
+    //this.navAction = this.navAction.bind(this);
   }
 
   navVote() {

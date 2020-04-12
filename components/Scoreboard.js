@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import LiberalGuide from "./LiberalGuide";
 import FascistGuide from "./FascistGuide";
 import PBar from "./PBar";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity, Alert } from "react-native";
 
 class Scoreboard extends Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Scoreboard extends Component {
 
     this.incrementLScore = this.incrementLScore.bind(this);
     this.incrementFScore = this.incrementFScore.bind(this);
+    this.alertWinner = this.alertWinner.bind(this);
   }
 
   state = {
@@ -18,27 +19,57 @@ class Scoreboard extends Component {
     fasScore: 0,
   };
 
+  alertWinner() {
+    if (this.state.fasScore == 5) {
+      var string = "Fascist have taken over!";
+    } else {
+      var string = "Liberals stand strong!";
+    }
+
+    Alert.alert("Victory!", string, [
+      { text: "New Game", onPress: () => console.log("New Game pressed") },
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      { text: "Ok", onPress: () => console.log("Ok Pressed") },
+    ]);
+  }
+
   incrementFScore() {
-    if (this.state.fasScore <= 6) {
-      var lib = this.state.libScore;
-      var fas = this.state.fasScore + 1;
+    if (this.state.fasScore < 5) {
+      let lib = this.state.libScore;
+      let fas = this.state.fasScore;
+
+      let newFas = fas + 1;
 
       this.setState({
         libScore: lib,
-        fasScore: fas,
+        fasScore: newFas,
       });
+
+      if (this.state.libScore === 5) {
+        this.alertWinner();
+      }
     }
   }
 
   incrementLScore() {
-    if (this.state.libScore <= 5) {
-      var lib = this.state.libScore + 1;
-      var fas = this.state.fasScore;
+    if (this.state.libScore <= 4) {
+      let lib = this.state.libScore;
+      let fas = this.state.fasScore;
+
+      let newLib = lib + 1;
 
       this.setState({
-        libScore: lib,
+        libScore: newLib,
         fasScore: fas,
       });
+
+      if (this.state.libScore === 4) {
+        this.alertWinner();
+      }
     }
   }
 
@@ -60,13 +91,13 @@ class Scoreboard extends Component {
         </View>
         <View style={styles.btnCol}>
           <TouchableOpacity
-            style={styles.plusBtn}
+            style={styles.lPlusBtn}
             onPress={this.incrementLScore}
           >
             <Text> + </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.plusBtn}
+            style={styles.fPlusBtn}
             onPress={this.incrementFScore}
           >
             <Text> + </Text>
@@ -80,7 +111,7 @@ class Scoreboard extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
-    width: "85%",
+    width: "90%",
   },
   row: {
     flexDirection: "row",
@@ -89,12 +120,19 @@ const styles = StyleSheet.create({
     width: 55,
     alignItems: "center",
     height: "100%",
-    paddingRight: 10,
+    paddingRight: 30,
   },
-  plusBtn: {
+  fPlusBtn: {
     marginTop: 5,
     marginBottom: 15, //custom fit, wont reuse
     borderWidth: 1,
+    backgroundColor: "#BE5A48",
+  },
+  lPlusBtn: {
+    marginTop: 6,
+    marginBottom: 15, //custom fit, wont reuse
+    borderWidth: 1,
+    backgroundColor: "#6592BC",
   },
 });
 
