@@ -13,15 +13,15 @@ class GameScreen extends Component {
     super(props);
 
     this.navVote = this.navVote.bind(this);
-    //this.navAction = this.navAction.bind(this);
+    this.navStart = this.navStart.bind(this);
   }
 
   navVote() {
     this.props.navigation.navigate("vote");
   }
 
-  navAction() {
-    this.props.navigation.navigate("playerAction");
+  navStart() {
+    this.props.navigation.navigate("start");
   }
 
   render() {
@@ -34,7 +34,7 @@ class GameScreen extends Component {
           players={this.props.players}
           nav={this.props.navigation}
         />
-        <Scoreboard />
+        <Scoreboard newGame={this.navStart} />
         <ButtonMenu vote={this.navVote} />
       </View>
     );
