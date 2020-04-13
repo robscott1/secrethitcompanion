@@ -20,10 +20,6 @@ const playerReducer = (state = initState, action) => {
       let playerList = state.players;
       console.log("DBG Console - playerReducer.. playerList.." + playerList);
       let victim = state.players.find(function (item) {
-        console.log(
-          "DBG Console - playerReducer.. action.payload.." + action.payload
-        );
-
         return item.id === action.payload;
       });
       console.log("DBG Console - playerReducer.. victim..");
@@ -48,13 +44,16 @@ const playerReducer = (state = initState, action) => {
       // oldChancellor.chancellor = false;
 
       // elect new player
-      let newChancellor = playerList1.find(state.spotLight.id);
+      let newChancellor = state.players.find(function (item) {
+        return item.id === action.payload;
+      });
       newChancellor.chancellor = true;
 
+      console.log(state.players);
+
       return {
-        ...state,
-        playerList1,
-      };
+        ...state, // whats good with setting state here
+      }; // here, makes new state obj if not same name
       break;
 
     case "PRESIDENT":

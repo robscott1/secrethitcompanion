@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { spotlight } from "../actions";
+import { spotlight, electChancellor } from "../actions";
 import { killPlayer } from "../actions";
 
 import { connect } from "react-redux";
@@ -23,6 +23,7 @@ class PlayerCard extends Component {
         break;
 
       case "elect":
+        console.log("DBG Console - PlayerCard: purpose.." + this.props.id);
         this.props.elect(this.props.id);
         break;
 
@@ -97,6 +98,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   kill: (player) => {
     dispatch(killPlayer(player));
+  },
+  elect: (player) => {
+    dispatch(electChancellor(player));
   },
 });
 
