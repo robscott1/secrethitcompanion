@@ -25,6 +25,8 @@ class PlayerList extends Component {
               president={item.president}
               alive={item.alive}
               nav={this.props.nav}
+              handlePress={this.props.handlePress}
+              purpose={this.props.purpose}
             />
           )}
           numColumns={2}

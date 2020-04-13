@@ -7,7 +7,7 @@ const playerReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE":
       let players = state.players;
-      console.log("Dbg - item name: " + action.payload.id);
+      console.log(action.payload);
       players.push(action.payload);
       return {
         ...state,
@@ -16,14 +16,21 @@ const playerReducer = (state = initState, action) => {
       break;
 
     case "KILL":
-      console.log("Dbg console - kill reducer: " + state.players);
+      console.log(state.players);
       let playerList = state.players;
-      let victim = playerList.find(action.payload.id);
+      console.log("DBG Console - playerReducer.. playerList.." + playerList);
+      let victim = state.players.find(function (item) {
+        console.log(
+          "DBG Console - playerReducer.. action.payload.." + action.payload
+        );
+
+        return item.id === action.payload;
+      });
+      console.log("DBG Console - playerReducer.. victim..");
       victim.alive = false;
 
       return {
         ...state,
-        playerList,
       };
       break;
 

@@ -5,7 +5,7 @@ import styles from "./ChooseChancellorStyles";
 import { View, Text } from "react-native";
 import { killPlayer } from "../actions";
 
-class KillPlayerScreen extends Component {
+class KillPlayer extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,7 +16,7 @@ class KillPlayerScreen extends Component {
         <View style={styles.textView}>
           <Text style={styles.text}>Root out the enemy...</Text>
         </View>
-        <PlayerList players={this.props.players}></PlayerList>
+        <PlayerList players={this.props.players} purpose={"kill"}></PlayerList>
       </View>
     );
   }
@@ -32,4 +32,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(KillPlayerScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(KillPlayer);

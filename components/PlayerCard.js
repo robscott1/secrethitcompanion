@@ -1,22 +1,35 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import {
-  TouchableHighlight,
-  TouchableOpacity,
-} from "react-native-gesture-handler";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { spotlight } from "../actions";
+import { killPlayer } from "../actions";
+
 import { connect } from "react-redux";
 
 class PlayerCard extends Component {
   constructor(props) {
     super(props);
 
-    this.handleBtnPress = this.handleBtnPress.bind(this);
+    this.handlePress = this.handlePress.bind(this);
   }
 
-  handleBtnPress() {
-    this.props.putOnSpotlight(this.props.id);
-    this.props.nav.navigate("playerAction");
+  handlePress() {
+    console.log("DBG Console - PlayerCard: handlePress triggered..");
+    console.log("DBG Console - PlayerCard: purpose.. " + this.props.purpose);
+
+    switch (this.props.purpose) {
+      case "kill":
+        console.log("DBG Console - PlayerCard: purpose.." + this.props.purpose);
+        this.props.kill(this.props.id);
+        break;
+
+      case "elect":
+        this.props.elect(this.props.id);
+        break;
+
+      case "start":
+        this.props.delete(this.props.id);
+        break;
+    }
   }
 
   render() {
@@ -27,7 +40,6 @@ class PlayerCard extends Component {
     } else if (this.props.president) {
       position = "President";
     }
-
     if (this.props.alive) {
       var dead = false;
     }
@@ -39,7 +51,7 @@ class PlayerCard extends Component {
         </View>
         <TouchableOpacity
           style={this.props.alive ? styles.alive : styles.dead}
-          onPress={this.handleBtnPress}
+          onPress={this.handlePress}
         >
           <Text>{this.props.id}</Text>
         </TouchableOpacity>
@@ -82,6 +94,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   putOnSpotlight: (player) => {
     dispatch(spotlight(player));
+  },
+  kill: (player) => {
+    dispatch(killPlayer(player));
   },
 });
 

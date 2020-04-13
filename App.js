@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 import rootReducer from "./reducers";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Start from "./screens/Start";
+import KillPlayer from "./screens/KillPlayer";
 import { screensEnabled } from "react-native-screens";
 import Game from "./screens/Game";
 const Stack = createStackNavigator();
@@ -35,6 +35,10 @@ export default class App extends Component {
               options={{ title: "Add Players" }}
             ></Stack.Screen>
             <Stack.Screen name="game" component={GameScreen}></Stack.Screen>
+            <Stack.Screen
+              name="killPlayer"
+              component={KillPlayer}
+            ></Stack.Screen>
             <Stack.Screen name="vote" component={Vote}></Stack.Screen>
             <Stack.Screen
               name="MotionPassed"
