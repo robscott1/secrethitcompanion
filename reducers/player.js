@@ -1,3 +1,5 @@
+import dbg from "../Debug";
+
 const initState = {
   players: [],
   spotLight: "init",
@@ -16,13 +18,12 @@ const playerReducer = (state = initState, action) => {
       break;
 
     case "KILL":
-      console.log(state.players);
-      let playerList = state.players;
-      console.log("DBG Console - playerReducer.. playerList.." + playerList);
+      dbg("Player Reducer", "Players", state.players);
+
       let victim = state.players.find(function (item) {
         return item.id === action.payload;
       });
-      console.log("DBG Console - playerReducer.. victim..");
+      dbg("Player Reducer", "victim", victim.name);
       victim.alive = false;
 
       return {
@@ -31,17 +32,11 @@ const playerReducer = (state = initState, action) => {
       break;
 
     case "ELECT":
-      let playerList1 = state.players;
-
       // un-elect current player
-      let oldChancellor = playerList1.find(function (item) {
+      let oldChancellor = state.players.find(function (item) {
         return item.chancellor === true;
       });
-      console.log(
-        "DBG Console - playercard: oldChancellor... " + oldChancellor
-      );
       if (oldChancellor != undefined) {
-        console.log("DBG Console - playercard.. dethroning chancellor... ");
         oldChancellor.chancellor = false;
       }
 
