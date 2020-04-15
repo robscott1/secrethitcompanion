@@ -33,15 +33,17 @@ const playerReducer = (state = initState, action) => {
     case "ELECT":
       let playerList1 = state.players;
 
-      // commented this out because there is no current
-      // chancellor during the first round
-
-      //un-elect current player
-      // let oldChancellor = playerList1.find(function (item) {
-      //   item.chancellor === true;
-      // });
-
-      // oldChancellor.chancellor = false;
+      // un-elect current player
+      let oldChancellor = playerList1.find(function (item) {
+        return item.chancellor === true;
+      });
+      console.log(
+        "DBG Console - playercard: oldChancellor... " + oldChancellor
+      );
+      if (oldChancellor != undefined) {
+        console.log("DBG Console - playercard.. dethroning chancellor... ");
+        oldChancellor.chancellor = false;
+      }
 
       // elect new player
       let newChancellor = state.players.find(function (item) {
