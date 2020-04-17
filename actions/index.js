@@ -5,6 +5,13 @@ export const addPlayer = (payload) => {
   };
 };
 
+export const deletePlayer = (payload) => {
+  return {
+    type: "DELETE",
+    payload,
+  };
+};
+
 export const killPlayer = (payload) => {
   return {
     type: "KILL",

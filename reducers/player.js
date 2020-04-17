@@ -9,7 +9,6 @@ const playerReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE":
       let players = state.players;
-      console.log(action.payload);
       players.push(action.payload);
       return {
         ...state,
@@ -17,13 +16,21 @@ const playerReducer = (state = initState, action) => {
       };
       break;
 
-    case "KILL":
-      dbg("Player Reducer", "Players", state.players);
+    case "DELETE":
+      state.players = state.players.filter(function (item) {
+        return item.id !== action.payload;
+      });
 
+      return {
+        ...state,
+      };
+      break;
+
+    case "KILL":
       let victim = state.players.find(function (item) {
         return item.id === action.payload;
       });
-      dbg("Player Reducer", "victim", victim.name);
+
       victim.alive = false;
 
       return {
@@ -45,8 +52,6 @@ const playerReducer = (state = initState, action) => {
         return item.id === action.payload;
       });
       newChancellor.chancellor = true;
-
-      console.log(state.players);
 
       return {
         ...state, // whats good with setting state here

@@ -100,11 +100,11 @@ class StartScreen extends Component {
           percentage={this.props.players.length * 10}
           style={styles.bar}
         />
-        <PlayerList players={this.props.players} />
+        <PlayerList players={this.props.players} purpose="start" />
         <View>
           <TouchableOpacity
             style={
-              this.props.players.length >= 5
+              this.props.players.length > 5
                 ? styles.beginBtnEnabled
                 : styles.beginBtnDisabled
             }
@@ -112,7 +112,7 @@ class StartScreen extends Component {
           >
             <Text
               style={{
-                color: this.props.players.length >= 5 ? "white" : "black",
+                color: this.props.players.length > 5 ? "white" : "black",
               }}
             >
               Begin Game!
