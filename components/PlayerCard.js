@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { spotlight, electChancellor } from "../actions";
+import { spotlight, electChancellor, deletePlayer } from "../actions";
 import { killPlayer } from "../actions";
 
 import { connect } from "react-redux";
@@ -101,6 +101,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   elect: (player) => {
     dispatch(electChancellor(player));
+  },
+  delete: (player) => {
+    dispatch(deletePlayer(player));
   },
 });
 
