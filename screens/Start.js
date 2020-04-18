@@ -73,14 +73,6 @@ class StartScreen extends Component {
   }
 
   render() {
-    let beginBtnStyle =
-      this.props.players.length >= 5
-        ? styles.beginBtnEnabled
-        : styles.beginBtnDisabled;
-
-    console.log("DBG Console - Start: style.. ");
-    console.log(beginBtnStyle);
-
     return (
       <View style={styles.container}>
         <ImageOrTimer />
