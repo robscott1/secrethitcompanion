@@ -6,7 +6,7 @@ const failedVoteReducer = (state = initState, action) => {
     switch(action.type) {
         case 'INCREMENT':
             if (state.failedVotes ==2) {
-                //enact policy
+                alert('Enact the top policy...');
                 return {
                     failedVotes: 0
                 };
@@ -15,6 +15,9 @@ const failedVoteReducer = (state = initState, action) => {
             return {
                 failedVotes: state.failedVotes + 1
             };
+            break;
+        case 'RESET':
+            return initState;
             break;
         default:
             return state;

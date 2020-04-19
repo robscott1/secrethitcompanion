@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, TouchableHighlight, Text } from "react-native";
+import { makePresident } from "../actions";
+import { connect } from 'react-redux';
 
 class ButtonMenu extends Component {
   state = {};
@@ -15,7 +17,7 @@ class ButtonMenu extends Component {
         <TouchableHighlight style={styles.button}>
           <Text style={styles.text}>Debate!</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button}>
+        <TouchableHighlight style={styles.button} onPress={this.props.newPresident}>
           <Text style={styles.text}>New Term</Text>
         </TouchableHighlight>
       </View>
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center", // gotta use these stylings
     alignItems: "center", // on body holding text
-    backgroundColor: "black",
+    backgroundColor: "#434343",
     marginHorizontal: 2,
     shadowOpacity: 0.75,
   },

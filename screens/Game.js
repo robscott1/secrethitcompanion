@@ -7,6 +7,8 @@ import PlayerList from "../components/PlayersList";
 import Scoreboard from "../components/Scoreboard";
 import ButtonMenu from "../components/ButtonMenu";
 import { NavigationContainer } from "@react-navigation/native";
+import { makePresident, resetPlayers } from "../actions";
+import { resetVote } from "../actions/voteActions";
 
 class GameScreen extends Component {
   constructor(props) {
@@ -15,6 +17,11 @@ class GameScreen extends Component {
     this.navVote = this.navVote.bind(this);
     this.navStart = this.navStart.bind(this);
     this.navKill = this.navKill.bind(this);
+    this.forceRender = this.forceRender.bind(this);
+  }
+
+  forceRender() {
+    this.forceUpdate();
   }
 
   navVote() {
@@ -22,6 +29,8 @@ class GameScreen extends Component {
   }
 
   navStart() {
+    this.props.playerReset();
+    this.props.voteReset();
     this.props.navigation.navigate("start");
   }
 
@@ -39,7 +48,7 @@ class GameScreen extends Component {
           players={this.props.players}
           nav={this.props.navigation}
         />
-        <Scoreboard newGame={this.navStart} kill={this.navKill} />
+        <Scoreboard newGame={this.navStart} kill={this.navKill} reRender={this.forceRender}/>
         <ButtonMenu vote={this.navVote} />
       </View>
     );
@@ -68,17 +77,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  newPlayer: (player) => {
-    dispatch(addPlayer(player));
-  },
-  killAPlayer: (player) => {
-    console.log("kill player triggered");
-    dispatch(killPlayer(player));
-  },
-  electNewChancellor: (player) => {
-    console.log("elect chancellor triggered");
-    dispatch(electChancellor(player));
-  },
+  playerReset: () => dispatch(resetPlayers()),
+  voteReset: () => dispatch(resetVote())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);

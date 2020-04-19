@@ -13,17 +13,13 @@ class PlayerCard extends Component {
   }
 
   handlePress() {
-    console.log("DBG Console - PlayerCard: handlePress triggered..");
-    console.log("DBG Console - PlayerCard: purpose.. " + this.props.purpose);
 
     switch (this.props.purpose) {
       case "kill":
-        console.log("DBG Console - PlayerCard: purpose.." + this.props.purpose);
         this.props.kill(this.props.id);
         break;
 
       case "elect":
-        console.log("DBG Console - PlayerCard: purpose.." + this.props.id);
         this.props.elect(this.props.id);
         break;
 
@@ -74,7 +70,6 @@ const styles = StyleSheet.create({
   },
   position: {
     backgroundColor: "#434343",
-    color: "#FFF",
     width: "100%",
   },
   dead: {
