@@ -15,15 +15,11 @@ class PBar extends Component {
           position: "relative",
           height: 5,
           width: "100%",
-          borderWith: 1,
-          verticalAlign: "middle",
           paddingBottom: 3,
         }}
       >
         <View
-          className="filler"
           style={{
-            background: "beige",
             height: "100%",
             backgroundColor: "blue",
             width: `${this.props.percentage}%`,

@@ -13,7 +13,7 @@ import PlayerList from "../components/PlayersList";
 import addPlayerPBar from "../components/AddPlayerPBar";
 import PBar from "../components/PBar";
 import { connect } from "react-redux";
-import { addPlayer } from "../actions";
+import { addPlayer, makePresident } from "../actions";
 import AddPlayerPBar from "../components/AddPlayerPBar";
 import dbg from "../Debug";
 
@@ -42,6 +42,7 @@ class StartScreen extends Component {
     if (this.props.players.length < 6) {
       alert("Add at least 6 players to start!");
     } else {
+      this.props.changePresident("start");
       this.props.navigation.navigate("game");
     }
   }
@@ -72,6 +73,12 @@ class StartScreen extends Component {
   }
 
   render() {
+
+    let beginBtnStyle =
+      this.props.players.length >= 5
+        ? styles.beginBtnEnabled
+        : styles.beginBtnDisabled;
+    
     return (
       <View style={styles.container}>
         <ImageOrTimer />
@@ -123,7 +130,7 @@ const styles = StyleSheet.create({
     height: 40,
   },
   container: {
-    paddingTop: 20,
+    paddingTop: 70,
     paddingHorizontal: 20,
     backgroundColor: "#FBB969",
     height: "100%",
@@ -154,7 +161,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     shadowOpacity: 0.5,
     marginLeft: 5,
-    textAlign: "center",
   },
   beginBtnDisabled: {
     alignSelf: "center",
@@ -201,6 +207,9 @@ const mapDispatchToProps = (dispatch) => ({
   electNewChancellor: (player) => {
     dispatch(electChancellor(player));
   },
+  changePresident: (start) => {
+    dispatch(makePresident(start));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StartScreen);

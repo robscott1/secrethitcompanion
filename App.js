@@ -26,10 +26,7 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="start"
-            screenOptions={{ headerShown: false }}
-          >
+          <Stack.Navigator initialRouteName="start" screenOptions={{headerShown : false}}>
             <Stack.Screen name="start" component={StartScreen}></Stack.Screen>
             <Stack.Screen
               name="chooseChancellor"

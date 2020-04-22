@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     countdownText: {
-        fontSize: 200,
+        fontSize: 150,
         color: '#FFF'
     },
     voteView: {

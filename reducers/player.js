@@ -59,21 +59,40 @@ const playerReducer = (state = initState, action) => {
       break;
 
     case "PRESIDENT":
-      let playerList2 = state.players;
+      let playerList = state.players;
+      if (action.payload === "start") {
+        playerList[0].president = true;
+      } else {
+        let newPres = false;
+        let oldPresFound = false;
+        let index = 0;
+        while (newPres === false) {
+          if (oldPresFound) {
+            if (playerList[index].alive === true) {
+              playerList[index].president = true;
+              break;
+            }
+          } else { 
+            if (playerList[index].president == true) {
+              playerList[index].president = false;
+              oldPresFound = true;
+            }
+          }  
 
-      //un-elect current player
-      let oldPresident = playerList2.find(function (item) {
-        item.president === true;
-      });
-      oldPresident.president = false;
+          index++;
+          index = (playerList.length === index ? 0 : index);
+        }
 
-      // elect new player
-      let newPresident = playerList.find(state.spotLight.id);
-      newPresident.president = true;
+        playerList.forEach(player => {
+          if (player.chancellor) {
+            player.chancellor = false;
+          }
+        });
+      }
 
       return {
         ...state,
-        playerList2,
+        playerList
       };
       break;
 
@@ -87,10 +106,12 @@ const playerReducer = (state = initState, action) => {
         spotLight,
       };
       break;
-
+    case "RESET": 
+      return initState;
+      break;
     default:
       return state;
-      break;
+      break
   }
 };
 

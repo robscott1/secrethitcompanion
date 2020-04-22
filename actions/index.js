@@ -39,3 +39,10 @@ export const spotlight = (payload) => {
     payload,
   };
 };
+
+export const resetPlayers = (payload) => {
+  return {
+    type: "RESET",
+    payload,
+  };
+};

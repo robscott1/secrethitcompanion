@@ -36,7 +36,6 @@ class TodoList extends Component {
       this._inputElement.value = "";
     }
 
-    console.log(itemArray);
 
     e.preventDefault();
   }
@@ -78,7 +77,6 @@ class TodoList extends Component {
 
     this.deleteItem(key);
 
-    console.log(completeItems);
   }
 
   render() {

@@ -1,25 +1,106 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, Text } from "react-native";
+import { connect } from 'react-redux';
+
+import { startTimer, stopTimer, decrementTimer } from "../actions/timerActions";
 
 class ImageOrTimer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleTime = this.handleTime.bind(this);
+  }
+
+  state = {
+    hasTimerStarted: false,
+    time: 300
+  };
   //this state or props will decide when this
   // changes into timer or image
-  state = {};
+
+  handleTime() {
+    if (this.state.time <= 0) {
+      this.props.hideTimer();
+      this.setState({
+        hasTimerStarted: false,
+        time: 300
+      });
+      clearInterval(this.interval);
+    } else {
+      this.setState({
+        hasTimerStarted: true,
+        time: this.state.time - 1
+      });
+    }
+  }
+
+  componentDidMount() {
+    if (!this.state.hasTimerStarted) {
+      this.interval = setInterval(this.handleTime, 1000);
+    }
+  }
+
+  componentDidUpdate() {
+      if (this.state.time <= 0) {
+        this.props.hideTimer();
+        clearInterval(this.interval);
+      } else if (!this.props.timerOn && this.state.hasTimerStarted){
+        this.setState({
+          hasTimerStarted: false,
+          time: 300
+        });
+      }
+  }
+
+  componentWillUnmount() {
+      clearInterval(this.interval);
+      this.props.hideTimer();
+  }
 
   render() {
-    return (
+    if (this.props.timerOn) {
+      let minText = Math.floor(this.state.time/60);
+      let secText = this.state.time % 60;
+      if (secText < 10) {
+        secText = "0" + secText;
+      }
+
+      return (
       <View style={styles.container}>
-        <Image source={require("../imagefolder/game-title.png")} />
+        <Text style={styles.text}>{minText}:{secText}</Text>
       </View>
-    );
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <Image style={styles.img} source={require("../imagefolder/secret-hitler-logo-png-1.png")} />
+        </View>
+      );
+    }
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    paddingTop: 20,
+    justifyContent: 'center',
+    margin: 10,
+    height: 100 
+  },
+  text: {
+    fontSize: 100,
+    color: "#434343"
   },
 });
 
-export default ImageOrTimer;
+const mapStateToProps = (state) => ({
+  ...state.imageOrTimerReducer
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  hideTimer: () => { dispatch(stopTimer) },
+  showTimer: () => { dispatch(startTimer) },
+  continueTimer: () => { dispatch(decrementTimer) }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImageOrTimer);

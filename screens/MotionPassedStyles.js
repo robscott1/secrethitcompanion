@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     motionText: {
-        fontSize: 40,
+        fontSize: 25,
         color: '#FFF',
         marginBottom: 50
     },
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     text: {
-        fontSize: 30,
+        fontSize: 25,
         color: '#000'
     }
 });
