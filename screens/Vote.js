@@ -1,5 +1,5 @@
-import styles from './VoteStyles';
-import React, { Component } from 'react';
+import styles from "./VoteStyles";
+import React, { Component } from "react";
 import {
   View,
   TextInput,
@@ -7,59 +7,61 @@ import {
   Button,
   TouchableOpacity,
   Text,
-  Keyboard
+  Keyboard,
 } from "react-native";
+import { connect } from "react-redux";
 
 class Vote extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.handleTime = this.handleTime.bind(this);
+    this.handleTime = this.handleTime.bind(this);
+  }
+
+  state = {
+    time: 5,
+  };
+
+  handleTime() {
+    console.log(this.props);
+    if (this.state.time == -3) {
+      this.props.navigation.navigate("MotionPassed");
     }
 
-    state = {
-        time: 5
-    };
+    this.setState({
+      time: this.state.time - 1,
+    });
+  }
 
-    handleTime() {
-        if (this.state.time == -3) {
-            this.props.navigation.navigate('MotionPassed');
-        }
+  componentDidMount() {
+    this.interval = setInterval(this.handleTime, 1000);
+  }
 
-        this.setState({
-            time: this.state.time - 1
-        });
+  componentDidUpdate() {
+    if (this.state.time < -3) {
+      clearInterval(this.interval);
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  render() {
+    var timerText = this.state.time;
+    var viewStyle = styles.countdownView;
+
+    if (this.state.time < 1) {
+      timerText = "Vote!";
+      viewStyle = styles.voteView;
     }
 
-    componentDidMount() {
-        this.interval = setInterval(this.handleTime, 1000);
-    }
-
-    componentDidUpdate() {
-        if (this.state.time < -3) {
-            clearInterval(this.interval);
-        }
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
-
-    render() {
-        var timerText = this.state.time;
-        var viewStyle = styles.countdownView;
-
-        if (this.state.time < 1) {
-            timerText = "Vote!";
-            viewStyle = styles.voteView;
-        }       
-
-        return (
-             <View style={viewStyle}>
-                <Text style={styles.countdownText}>{timerText}</Text>
-             </View>
-        );
-    }
+    return (
+      <View style={viewStyle}>
+        <Text style={styles.countdownText}>{timerText}</Text>
+      </View>
+    );
+  }
 }
 
 export default Vote;

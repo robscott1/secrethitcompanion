@@ -47,7 +47,6 @@ class StartScreen extends Component {
   }
 
   addPlayer() {
-    console.log("DBG Console - this.props.players: " + this.props.players);
     if (this.state.entry === "") {
       return;
     } else if (this.props.players.length == 10) {
