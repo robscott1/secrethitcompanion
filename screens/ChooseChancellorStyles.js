@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 25,
         color: '#FFF',
-        marginBottom: 50
+        marginBottom: 50,
+        textAlign: 'center'
     }
 });
 

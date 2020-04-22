@@ -15,7 +15,6 @@ class AddPlayerPBar extends Component {
           style={{
             height: "100%",
             width: `${this.props.percentage}%`,
-            color: "black",
             backgroundColor: "black",
             borderRadius: 5,
           }}
