@@ -10,7 +10,10 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  HeaderBackground,
+} from "@react-navigation/stack";
 import KillPlayer from "./screens/KillPlayer";
 import { screensEnabled } from "react-native-screens";
 import Game from "./screens/Game";
@@ -28,11 +31,15 @@ export default class App extends Component {
             <Stack.Screen
               name="chooseChancellor"
               component={ChooseChancellor}
+              screenOptions={{ headerShown: false }}
             ></Stack.Screen>
             <Stack.Screen
               name="playerAction"
               component={PlayerActionScreen}
-              options={{ title: "Add Players" }}
+              options={{
+                title: "Add Players",
+                headerStyle: { backgroundColor: "#FBB969" },
+              }}
             ></Stack.Screen>
             <Stack.Screen name="game" component={GameScreen}></Stack.Screen>
             <Stack.Screen
