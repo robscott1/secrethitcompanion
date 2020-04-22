@@ -1,9 +1,24 @@
 import React, { Component } from "react";
 import { View, StyleSheet, TouchableHighlight, Text } from "react-native";
 import { makePresident } from "../actions";
+import { startTimer, stopTimer } from "../actions/timerActions";
 import { connect } from 'react-redux';
 
 class ButtonMenu extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleTimer = this.handleTimer.bind(this);
+  }
+
+  handleTimer() {
+    if (this.props.timerOn) {
+      this.props.hideTimer();
+    } else {
+      this.props.showTimer();
+    }
+  }
+ 
   state = {};
 
   render() {
@@ -14,7 +29,7 @@ class ButtonMenu extends Component {
             Vote!
           </Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.button}>
+        <TouchableHighlight style={styles.button} onPress={this.handleTimer}>
           <Text style={styles.text}>Debate!</Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress={this.props.newPresident}>
@@ -51,4 +66,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ButtonMenu;
+const mapStateToProps = (state) => ({
+  ...state.playerReducer,
+  ...state.imageOrTimerReducer
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  newPresident: () => { dispatch(makePresident(null)) },
+  showTimer: () => { dispatch(startTimer)},
+  hideTimer: () => { dispatch(stopTimer)},
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonMenu);

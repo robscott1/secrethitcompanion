@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     height: 40,
   },
   container: {
-    paddingTop: 20,
+    paddingTop: 70,
     paddingHorizontal: 20,
     backgroundColor: "#FBB969",
     height: "100%",

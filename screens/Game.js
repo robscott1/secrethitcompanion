@@ -40,7 +40,7 @@ class GameScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <FailedVoteCounter />
         <ImageOrTimer />
         <PlayerList
@@ -63,11 +63,9 @@ const styles = StyleSheet.create({
     height: 40,
   },
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#FBB969",
     height: "100%",
+    paddingTop: 35 
   },
 });
 
