@@ -4,6 +4,7 @@ import { spotlight, electChancellor, deletePlayer } from "../actions";
 import { killPlayer } from "../actions";
 
 import { connect } from "react-redux";
+import { render } from "react-dom";
 
 class PlayerCard extends Component {
   constructor(props) {
@@ -13,7 +14,6 @@ class PlayerCard extends Component {
   }
 
   handlePress() {
-
     switch (this.props.purpose) {
       case "kill":
         this.props.kill(this.props.id);
@@ -30,21 +30,24 @@ class PlayerCard extends Component {
   }
 
   render() {
-    var position = "";
+    var position = false;
+    var title = "";
 
     if (this.props.chancellor) {
-      position = "Chancellor";
+      title = "Chancellor";
+      position = true;
     } else if (this.props.president) {
-      position = "President";
+      title = "President";
+      position = true;
     }
     if (this.props.alive) {
       var dead = false;
     }
 
-    return (
-      <View style={styles.container}>
+    let positionCard = (
+      <View style={styles.containerPosition}>
         <View style={styles.position}>
-          <Text>{position}</Text>
+          <Text style={{ color: "white" }}>{title}</Text>
         </View>
         <TouchableOpacity
           style={this.props.alive ? styles.alive : styles.dead}
@@ -54,11 +57,24 @@ class PlayerCard extends Component {
         </TouchableOpacity>
       </View>
     );
+
+    let normalCard = (
+      <View style={styles.containerNormal}>
+        <TouchableOpacity
+          style={this.props.alive ? styles.alive : styles.dead}
+          onPress={this.handlePress}
+        >
+          <Text>{this.props.id}</Text>
+        </TouchableOpacity>
+      </View>
+    );
+
+    return position ? positionCard : normalCard;
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerPosition: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -67,6 +83,18 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     margin: 10,
+    height: 50,
+  },
+  containerNormal: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F7E2C1",
+    borderColor: "#434343",
+    borderRadius: 5,
+    borderWidth: 1,
+    margin: 10,
+    height: 50,
   },
   position: {
     backgroundColor: "#434343",
