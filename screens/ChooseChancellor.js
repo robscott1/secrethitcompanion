@@ -16,7 +16,11 @@ class ChooseChancellor extends Component {
         <View style={styles.textView}>
           <Text style={styles.text}>Choose your new Chancellor wisely...</Text>
         </View>
-        <PlayerList players={this.props.players} purpose={"elect"}></PlayerList>
+        <PlayerList
+          players={this.props.players}
+          nav={this.props.navigation}
+          purpose={"elect"}
+        ></PlayerList>
       </View>
     );
   }

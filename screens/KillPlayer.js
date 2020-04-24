@@ -8,15 +8,28 @@ import { killPlayer } from "../actions";
 class KillPlayer extends Component {
   constructor(props) {
     super(props);
+
+    this.return = this.return.bind(this);
+  }
+
+  return() {
+    console.log("...surface");
+    this.props.navigation.navigate("game");
   }
 
   render() {
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <View style={styles.textView}>
           <Text style={styles.text}>Root out the enemy...</Text>
         </View>
-        <PlayerList players={this.props.players} purpose={"kill"}></PlayerList>
+        <PlayerList
+          players={this.props.players}
+          purpose={"kill"}
+          nav={this.props.navigation}
+          return={this.return}
+        ></PlayerList>
       </View>
     );
   }

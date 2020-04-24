@@ -1,4 +1,5 @@
 import dbg from "../Debug";
+import { compose } from "redux";
 
 const initState = {
   players: [],
@@ -72,18 +73,18 @@ const playerReducer = (state = initState, action) => {
               playerList[index].president = true;
               break;
             }
-          } else { 
+          } else {
             if (playerList[index].president == true) {
               playerList[index].president = false;
               oldPresFound = true;
             }
-          }  
+          }
 
           index++;
-          index = (playerList.length === index ? 0 : index);
+          index = playerList.length === index ? 0 : index;
         }
 
-        playerList.forEach(player => {
+        playerList.forEach((player) => {
           if (player.chancellor) {
             player.chancellor = false;
           }
@@ -92,7 +93,7 @@ const playerReducer = (state = initState, action) => {
 
       return {
         ...state,
-        playerList
+        playerList,
       };
       break;
 
@@ -106,12 +107,12 @@ const playerReducer = (state = initState, action) => {
         spotLight,
       };
       break;
-    case "RESET": 
+    case "RESET":
       return initState;
       break;
     default:
       return state;
-      break
+      break;
   }
 };
 

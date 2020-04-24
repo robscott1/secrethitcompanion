@@ -17,10 +17,15 @@ class PlayerCard extends Component {
     switch (this.props.purpose) {
       case "kill":
         this.props.kill(this.props.id);
+        this.props.nav.navigate("game");
         break;
 
       case "elect":
+        console.log("player list before Chancellor election..");
+        console.log(this.props.players);
         this.props.elect(this.props.id);
+        this.props.update;
+        this.props.nav.navigate("game");
         break;
 
       case "start":
