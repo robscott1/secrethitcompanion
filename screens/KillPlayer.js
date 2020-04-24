@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PlayerList from "../components/PlayersList";
 import { connect } from "react-redux";
-import styles from "./ChooseChancellorStyles";
+import styles from "./KillPlayerStyles";
 import { View, Text } from "react-native";
 import { killPlayer } from "../actions";
 
