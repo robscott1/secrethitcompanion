@@ -3,7 +3,6 @@ import { compose } from "redux";
 
 const initState = {
   players: [],
-  spotLight: "init",
 };
 
 const playerReducer = (state = initState, action) => {
@@ -97,16 +96,6 @@ const playerReducer = (state = initState, action) => {
       };
       break;
 
-    case "SPOTLIGHT":
-      var pList = state.players;
-      var spotLight = action.payload;
-
-      return {
-        ...state,
-        pList,
-        spotLight,
-      };
-      break;
     case "RESET":
       return initState;
       break;
