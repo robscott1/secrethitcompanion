@@ -91,8 +91,6 @@ const playerReducer = (state = initState, action) => {
           }
         });
       }
-      console.log("state after.../n");
-      console.log(state.players);
 
       return {
         ...state,
