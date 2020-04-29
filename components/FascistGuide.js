@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   container: {
     height: 20,
     backgroundColor: "#BE5A48",
+    shadowOpacity: 0.3,
   },
   boardGuide: {
     width: "50%",
