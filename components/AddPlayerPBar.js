@@ -10,16 +10,19 @@ class AddPlayerPBar extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View
-          style={{
-            height: "100%",
-            width: `${this.props.percentage}%`,
-            backgroundColor: "black",
-            borderRadius: 5,
-          }}
-        >
-          <View style={styles.benchmark} />
+      <View>
+        <View style={{ alignItems: "center" }}>
+          <Text>6 Players Minimum, 10 Players Maximum..</Text>
+        </View>
+        <View style={styles.container}>
+          <View
+            style={{
+              height: "100%",
+              width: `${this.props.percentage}%`,
+              backgroundColor: "black",
+              borderRadius: 5,
+            }}
+          ></View>
         </View>
       </View>
     );
@@ -32,12 +35,6 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderRadius: 5,
     borderWidth: 1,
-  },
-  benchmark: {
-    height: "100%",
-    width: 200,
-    borderWidth: 1,
-    borderRadius: 5,
   },
 });
 
