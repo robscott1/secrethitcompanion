@@ -9,12 +9,6 @@ class ButtonMenu extends Component {
     super(props);
 
     this.handleTimer = this.handleTimer.bind(this);
-    this.handleNewTerm = this.handleNewTerm.bind(this);
-  }
-
-  handleNewTerm() {
-    this.props.newPresident();
-    this.props.reRender();
   }
 
   handleTimer() {
@@ -24,8 +18,6 @@ class ButtonMenu extends Component {
       this.props.showTimer();
     }
   }
-
-  state = {};
 
   render() {
     return (
@@ -37,9 +29,6 @@ class ButtonMenu extends Component {
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress={this.handleTimer}>
           <Text style={styles.text}>Debate!</Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress={this.handleNewTerm}>
-          <Text style={styles.text}>New Term</Text>
         </TouchableHighlight>
       </View>
     );
@@ -61,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: "center", // gotta use these stylings
     alignItems: "center", // on body holding text
     backgroundColor: "#434343",
-    marginHorizontal: 2,
+    marginHorizontal: 10,
     shadowOpacity: 0.75,
   },
   text: {
@@ -78,9 +67,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  newPresident: () => {
-    dispatch(makePresident(null));
-  },
   showTimer: () => {
     dispatch(startTimer);
   },
