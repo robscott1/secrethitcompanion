@@ -5,12 +5,6 @@ import PlayerCard from "./PlayerCard";
 class PlayerList extends Component {
   constructor(props) {
     super(props);
-
-    this.handlePress = this.handlePress.bind(this);
-  }
-
-  handlePress() {
-    console.log("press handled");
   }
 
   render() {
@@ -25,8 +19,8 @@ class PlayerList extends Component {
               president={item.president}
               alive={item.alive}
               nav={this.props.nav}
-              handlePress={this.props.handlePress}
               purpose={this.props.purpose}
+              update={this.props.update}
             />
           )}
           numColumns={2}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import { startTimer, stopTimer, decrementTimer } from "../actions/timerActions";
 
@@ -13,7 +13,7 @@ class ImageOrTimer extends Component {
 
   state = {
     hasTimerStarted: false,
-    time: 300
+    time: 300,
   };
   //this state or props will decide when this
   // changes into timer or image
@@ -23,13 +23,13 @@ class ImageOrTimer extends Component {
       this.props.hideTimer();
       this.setState({
         hasTimerStarted: false,
-        time: 300
+        time: 300,
       });
       clearInterval(this.interval);
     } else {
       this.setState({
         hasTimerStarted: true,
-        time: this.state.time - 1
+        time: this.state.time - 1,
       });
     }
   }
@@ -41,39 +41,44 @@ class ImageOrTimer extends Component {
   }
 
   componentDidUpdate() {
-      if (this.state.time <= 0) {
-        this.props.hideTimer();
-        clearInterval(this.interval);
-      } else if (!this.props.timerOn && this.state.hasTimerStarted){
-        this.setState({
-          hasTimerStarted: false,
-          time: 300
-        });
-      }
+    if (this.state.time <= 0) {
+      this.props.hideTimer();
+      clearInterval(this.interval);
+    } else if (!this.props.timerOn && this.state.hasTimerStarted) {
+      this.setState({
+        hasTimerStarted: false,
+        time: 300,
+      });
+    }
   }
 
   componentWillUnmount() {
-      clearInterval(this.interval);
-      this.props.hideTimer();
+    clearInterval(this.interval);
+    this.props.hideTimer();
   }
 
   render() {
     if (this.props.timerOn) {
-      let minText = Math.floor(this.state.time/60);
+      let minText = Math.floor(this.state.time / 60);
       let secText = this.state.time % 60;
       if (secText < 10) {
         secText = "0" + secText;
       }
 
       return (
-      <View style={styles.container}>
-        <Text style={styles.text}>{minText}:{secText}</Text>
-      </View>
+        <View style={styles.container}>
+          <Text style={styles.text}>
+            {minText}:{secText}
+          </Text>
+        </View>
       );
     } else {
       return (
         <View style={styles.container}>
-          <Image style={styles.img} source={require("../imagefolder/secret-hitler-logo-png-1.png")} />
+          <Image
+            style={styles.img}
+            source={require("../imagefolder/secret-hitler-logo-png-1.png")}
+          />
         </View>
       );
     }
@@ -83,24 +88,33 @@ class ImageOrTimer extends Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    justifyContent: 'center',
+    justifyContent: "center",
     margin: 10,
-    height: 100 
+    height: 100,
   },
   text: {
     fontSize: 100,
-    color: "#434343"
+    color: "#434343",
+  },
+  img: {
+    marginLeft: 40,
   },
 });
 
 const mapStateToProps = (state) => ({
-  ...state.imageOrTimerReducer
+  ...state.imageOrTimerReducer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  hideTimer: () => { dispatch(stopTimer) },
-  showTimer: () => { dispatch(startTimer) },
-  continueTimer: () => { dispatch(decrementTimer) }
+  hideTimer: () => {
+    dispatch(stopTimer);
+  },
+  showTimer: () => {
+    dispatch(startTimer);
+  },
+  continueTimer: () => {
+    dispatch(decrementTimer);
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageOrTimer);

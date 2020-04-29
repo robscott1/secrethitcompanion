@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, StyleSheet, TouchableHighlight, Text } from "react-native";
 import { makePresident } from "../actions";
 import { startTimer, stopTimer } from "../actions/timerActions";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 class ButtonMenu extends Component {
   constructor(props) {
@@ -18,8 +18,6 @@ class ButtonMenu extends Component {
       this.props.showTimer();
     }
   }
- 
-  state = {};
 
   render() {
     return (
@@ -31,9 +29,6 @@ class ButtonMenu extends Component {
         </TouchableHighlight>
         <TouchableHighlight style={styles.button} onPress={this.handleTimer}>
           <Text style={styles.text}>Debate!</Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button} onPress={this.props.newPresident}>
-          <Text style={styles.text}>New Term</Text>
         </TouchableHighlight>
       </View>
     );
@@ -55,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: "center", // gotta use these stylings
     alignItems: "center", // on body holding text
     backgroundColor: "#434343",
-    marginHorizontal: 2,
+    marginHorizontal: 10,
     shadowOpacity: 0.75,
   },
   text: {
@@ -68,13 +63,16 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => ({
   ...state.playerReducer,
-  ...state.imageOrTimerReducer
+  ...state.imageOrTimerReducer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  newPresident: () => { dispatch(makePresident(null)) },
-  showTimer: () => { dispatch(startTimer)},
-  hideTimer: () => { dispatch(stopTimer)},
+  showTimer: () => {
+    dispatch(startTimer);
+  },
+  hideTimer: () => {
+    dispatch(stopTimer);
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ButtonMenu);

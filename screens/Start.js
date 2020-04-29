@@ -73,12 +73,11 @@ class StartScreen extends Component {
   }
 
   render() {
-
     let beginBtnStyle =
       this.props.players.length >= 5
         ? styles.beginBtnEnabled
         : styles.beginBtnDisabled;
-    
+
     return (
       <View style={styles.container}>
         <ImageOrTimer />
@@ -99,7 +98,7 @@ class StartScreen extends Component {
           style={styles.bar}
         />
         <PlayerList players={this.props.players} purpose="start" />
-        <View>
+        <View style={{ display: this.props.players > 5 ? "flex" : "none" }}>
           <TouchableOpacity
             style={
               this.props.players.length > 5
@@ -209,7 +208,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changePresident: (start) => {
     dispatch(makePresident(start));
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StartScreen);

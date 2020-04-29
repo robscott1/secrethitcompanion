@@ -20,6 +20,11 @@ class GameScreen extends Component {
     this.forceRender = this.forceRender.bind(this);
   }
 
+  componentDidMount() {
+    console.log("mounted..");
+    this.props.navigation.addListener("focus", this.forceRender);
+  }
+
   forceRender() {
     this.forceUpdate();
   }
@@ -48,8 +53,12 @@ class GameScreen extends Component {
           players={this.props.players}
           nav={this.props.navigation}
         />
-        <Scoreboard newGame={this.navStart} kill={this.navKill} reRender={this.forceRender}/>
-        <ButtonMenu vote={this.navVote} />
+        <Scoreboard
+          newGame={this.navStart}
+          kill={this.navKill}
+          reRender={this.forceRender}
+        />
+        <ButtonMenu vote={this.navVote} reRender={this.forceRender} />
       </View>
     );
   }
@@ -65,7 +74,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FBB969",
     height: "100%",
-    paddingTop: 35 
+    paddingTop: 35,
   },
 });
 
@@ -76,7 +85,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   playerReset: () => dispatch(resetPlayers()),
-  voteReset: () => dispatch(resetVote())
+  voteReset: () => dispatch(resetVote()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);

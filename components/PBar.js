@@ -13,7 +13,7 @@ class PBar extends Component {
       <View
         style={{
           position: "relative",
-          height: 5,
+          height: 10,
           width: "100%",
           paddingBottom: 3,
         }}

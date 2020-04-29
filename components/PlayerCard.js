@@ -17,10 +17,17 @@ class PlayerCard extends Component {
     switch (this.props.purpose) {
       case "kill":
         this.props.kill(this.props.id);
+        console.log("players after kill...");
+        console.log(this.props.players);
+        this.props.nav.navigate("game");
         break;
 
       case "elect":
+        console.log("player list before Chancellor election..");
+        console.log(this.props.players);
         this.props.elect(this.props.id);
+        this.props.update;
+        this.props.nav.navigate("game");
         break;
 
       case "start":
@@ -42,7 +49,20 @@ class PlayerCard extends Component {
     }
     if (this.props.alive) {
       var dead = false;
+    } else {
+      dead = true;
     }
+
+    let deadCard = (
+      <View style={styles.containerDead}>
+        <TouchableOpacity
+          style={this.props.alive ? styles.alive : styles.dead}
+          onPress={this.handlePress}
+        >
+          <Text>{this.props.id}</Text>
+        </TouchableOpacity>
+      </View>
+    );
 
     let positionCard = (
       <View style={styles.containerPosition}>
@@ -69,6 +89,10 @@ class PlayerCard extends Component {
       </View>
     );
 
+    if (dead === true) {
+      return deadCard;
+    }
+
     return position ? positionCard : normalCard;
   }
 }
@@ -84,6 +108,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 10,
     height: 50,
+    shadowOpacity: 0.3,
   },
   containerNormal: {
     flex: 1,
@@ -95,6 +120,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 10,
     height: 50,
+    shadowOpacity: 0.3,
+  },
+  containerDead: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    textDecorationLine: "line-through",
+    backgroundColor: "red",
+    borderColor: "#434343",
+    borderRadius: 5,
+    borderWidth: 1,
+    margin: 10,
+    height: 50,
+    shadowOpacity: 0.3,
   },
   position: {
     backgroundColor: "#434343",

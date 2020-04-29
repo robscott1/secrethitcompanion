@@ -5,7 +5,7 @@ import FascistGuide from "./FascistGuide";
 import PBar from "./PBar";
 import { TouchableOpacity, Alert } from "react-native";
 import { makePresident } from "../actions";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 class Scoreboard extends Component {
   constructor(props) {
@@ -135,27 +135,28 @@ const styles = StyleSheet.create({
     paddingRight: 30,
   },
   fPlusBtn: {
-    marginTop: 5,
-    marginBottom: 15, //custom fit, wont reuse
+    marginTop: 10,
+    marginBottom: 20, //custom fit, wont reuse
     borderWidth: 1,
     backgroundColor: "#BE5A48",
+    shadowOpacity: 0.3,
   },
   lPlusBtn: {
-    marginTop: 6,
+    marginTop: 10,
     marginBottom: 15, //custom fit, wont reuse
     borderWidth: 1,
     backgroundColor: "#6592BC",
+    shadowOpacity: 0.3,
   },
 });
 
 const mapStateToProps = (state) => ({
   ...state.playerReducer,
-  ...state.failedVoteReducer
+  ...state.failedVoteReducer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  newPresident: () => dispatch(makePresident(null))
+  newPresident: () => dispatch(makePresident(null)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Scoreboard);
-
