@@ -59,40 +59,43 @@ const playerReducer = (state = initState, action) => {
       break;
 
     case "PRESIDENT":
-      let playerList = state.players;
+      console.log("action triggered.. state before...");
+      console.log(state.players);
+      //let playerList = state.players;
       if (action.payload === "start") {
-        playerList[0].president = true;
+        state.players[0].president = true;
       } else {
         let newPres = false;
         let oldPresFound = false;
         let index = 0;
         while (newPres === false) {
           if (oldPresFound) {
-            if (playerList[index].alive === true) {
-              playerList[index].president = true;
+            if (state.players[index].alive === true) {
+              state.players[index].president = true;
               break;
             }
           } else {
-            if (playerList[index].president == true) {
-              playerList[index].president = false;
+            if (state.players[index].president == true) {
+              state.players[index].president = false;
               oldPresFound = true;
             }
           }
 
           index++;
-          index = playerList.length === index ? 0 : index;
+          index = state.players.length === index ? 0 : index;
         }
 
-        playerList.forEach((player) => {
+        state.players.forEach((player) => {
           if (player.chancellor) {
             player.chancellor = false;
           }
         });
       }
+      console.log("state after.../n");
+      console.log(state.players);
 
       return {
         ...state,
-        playerList,
       };
       break;
 
