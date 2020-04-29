@@ -73,12 +73,14 @@ class StartScreen extends Component {
   }
 
   render() {
+    console.log("AFTER RESET....\n");
+    console.log(this.props);
 
     let beginBtnStyle =
       this.props.players.length >= 5
         ? styles.beginBtnEnabled
         : styles.beginBtnDisabled;
-    
+
     return (
       <View style={styles.container}>
         <ImageOrTimer />
@@ -209,7 +211,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changePresident: (start) => {
     dispatch(makePresident(start));
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StartScreen);

@@ -100,8 +100,9 @@ const playerReducer = (state = initState, action) => {
       break;
 
     case "RESET":
+      state.players = [];
       return {
-        state: initState,
+        ...state,
       };
       break;
     default:

@@ -44,6 +44,8 @@ class GameScreen extends Component {
   }
 
   render() {
+    console.log("Is state mapped to props?\n");
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <FailedVoteCounter />
