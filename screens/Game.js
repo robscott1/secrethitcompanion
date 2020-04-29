@@ -58,7 +58,7 @@ class GameScreen extends Component {
           kill={this.navKill}
           reRender={this.forceRender}
         />
-        <ButtonMenu vote={this.navVote} />
+        <ButtonMenu vote={this.navVote} reRender={this.forceRender} />
       </View>
     );
   }
