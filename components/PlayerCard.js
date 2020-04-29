@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 10,
     height: 50,
+    shadowOpacity: 0.3,
   },
   containerNormal: {
     flex: 1,
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 10,
     height: 50,
+    shadowOpacity: 0.3,
   },
   containerDead: {
     flex: 1,
@@ -131,6 +133,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 10,
     height: 50,
+    shadowOpacity: 0.3,
   },
   position: {
     backgroundColor: "#434343",
