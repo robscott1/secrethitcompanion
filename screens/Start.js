@@ -73,9 +73,6 @@ class StartScreen extends Component {
   }
 
   render() {
-    console.log("AFTER RESET....\n");
-    console.log(this.props);
-
     let beginBtnStyle =
       this.props.players.length >= 5
         ? styles.beginBtnEnabled
@@ -101,7 +98,7 @@ class StartScreen extends Component {
           style={styles.bar}
         />
         <PlayerList players={this.props.players} purpose="start" />
-        <View>
+        <View style={{ display: this.props.players > 5 ? "flex" : "none" }}>
           <TouchableOpacity
             style={
               this.props.players.length > 5
