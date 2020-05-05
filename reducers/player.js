@@ -62,11 +62,11 @@ const playerReducer = (state = initState, action) => {
       if (action.payload === "start") {
         state.players[0].king = true;
       } else {
-        let newPres = false;
-        let oldPresFound = false;
+        let newKing = false;
+        let oldKingFound = false;
         let index = 0;
-        while (newPres === false) {
-          if (oldPresFound) {
+        while (newKing === false) {
+          if (oldKingFound) {
             if (state.players[index].alive === true) {
               state.players[index].king = true;
               break;
@@ -74,7 +74,7 @@ const playerReducer = (state = initState, action) => {
           } else {
             if (state.players[index].king == true) {
               state.players[index].king = false;
-              oldPresFound = true;
+              oldKingFound = true;
             }
           }
 
