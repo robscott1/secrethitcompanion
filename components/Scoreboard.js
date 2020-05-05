@@ -4,7 +4,7 @@ import LiberalGuide from "./LiberalGuide";
 import FascistGuide from "./FascistGuide";
 import PBar from "./PBar";
 import { TouchableOpacity, Alert } from "react-native";
-import { makePresident } from "../actions";
+import { makeKing } from "../actions";
 import { connect } from "react-redux";
 
 class Scoreboard extends Component {
@@ -57,7 +57,7 @@ class Scoreboard extends Component {
         }
       }
 
-      this.props.newPresident();
+      this.props.newKing();
       this.props.reRender();
       if (this.state.fasScore === 5) {
         this.alertWinner();
@@ -77,7 +77,7 @@ class Scoreboard extends Component {
         fasScore: fas,
       });
 
-      this.props.newPresident();
+      this.props.newKing();
       this.props.reRender();
       if (this.state.libScore === 4) {
         this.alertWinner();
@@ -156,7 +156,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  newPresident: () => dispatch(makePresident(null)),
+  newKing: () => dispatch(makeKing(null)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Scoreboard);

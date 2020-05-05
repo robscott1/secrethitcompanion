@@ -12,7 +12,7 @@ import {
 import { connect } from "react-redux";
 import { electDuke, incrementFail } from "../actions/voteActions.js";
 import PlayerList from "../components/PlayersList";
-import { makePresident } from "../actions";
+import { makeKing } from "../actions";
 
 class MotionPassed extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class MotionPassed extends Component {
 
   handleNein() {
     this.props.voteFailure();
-    this.props.newPresident();
+    this.props.newKing();
     this.props.navigation.navigate("game");
   }
 
@@ -61,8 +61,8 @@ const mapDispatchToProps = (dispatch) => ({
   voteFailure: () => {
     dispatch(incrementFail);
   },
-  newPresident: () => {
-    dispatch(makePresident(null));
+  newKing: () => {
+    dispatch(makeKing(null));
   },
 });
 

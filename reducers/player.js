@@ -55,12 +55,12 @@ const playerReducer = (state = initState, action) => {
       }; // here, makes new state obj if not same name
       break;
 
-    case "PRESIDENT":
+    case "KING":
       console.log("action triggered.. state before...");
       console.log(state.players);
       //let playerList = state.players;
       if (action.payload === "start") {
-        state.players[0].president = true;
+        state.players[0].king = true;
       } else {
         let newPres = false;
         let oldPresFound = false;
@@ -68,12 +68,12 @@ const playerReducer = (state = initState, action) => {
         while (newPres === false) {
           if (oldPresFound) {
             if (state.players[index].alive === true) {
-              state.players[index].president = true;
+              state.players[index].king = true;
               break;
             }
           } else {
-            if (state.players[index].president == true) {
-              state.players[index].president = false;
+            if (state.players[index].king == true) {
+              state.players[index].king = false;
               oldPresFound = true;
             }
           }

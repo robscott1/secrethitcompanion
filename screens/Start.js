@@ -10,7 +10,7 @@ import {
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
 import { connect } from "react-redux";
-import { addPlayer, makePresident } from "../actions";
+import { addPlayer, makeKing } from "../actions";
 import AddPlayerPBar from "../components/AddPlayerPBar";
 
 class StartScreen extends Component {
@@ -38,7 +38,7 @@ class StartScreen extends Component {
     if (this.props.players.length < 6) {
       alert("Add at least 6 players to start!");
     } else {
-      this.props.changePresident("start");
+      this.props.changeKing("start");
       this.props.navigation.navigate("game");
     }
   }
@@ -53,7 +53,7 @@ class StartScreen extends Component {
     var player = {
       id: this.state.entry,
       Duke: false,
-      president: false,
+      king: false,
       alive: true,
       key: Date.now(),
     };
@@ -207,8 +207,8 @@ const mapDispatchToProps = (dispatch) => ({
   electNewDuke: (player) => {
     dispatch(electDuke(player));
   },
-  changePresident: (start) => {
-    dispatch(makePresident(start));
+  changeKing: (start) => {
+    dispatch(makeKing(start));
   },
 });
 

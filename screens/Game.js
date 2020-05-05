@@ -7,7 +7,7 @@ import PlayerList from "../components/PlayersList";
 import Scoreboard from "../components/Scoreboard";
 import ButtonMenu from "../components/ButtonMenu";
 import { NavigationContainer } from "@react-navigation/native";
-import { makePresident, resetPlayers } from "../actions";
+import { makeKing, resetPlayers } from "../actions";
 import { resetVote } from "../actions/voteActions";
 
 class GameScreen extends Component {

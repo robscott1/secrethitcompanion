@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, TouchableHighlight, Text } from "react-native";
-import { makePresident } from "../actions";
+import { makeKing } from "../actions";
 import { startTimer, stopTimer } from "../actions/timerActions";
 import { connect } from "react-redux";
 

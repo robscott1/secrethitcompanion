@@ -26,9 +26,9 @@ export const electDuke = (payload) => {
   };
 };
 
-export const makePresident = (payload) => {
+export const makeKing = (payload) => {
   return {
-    type: "PRESIDENT",
+    type: "KING",
     payload,
   };
 };
