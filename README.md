@@ -1,3 +1,4 @@
+
 We built a **React Navtive** companion-app to Coup D'etat, a board game that requires deception and teamwork in order to help your side win. The rebel's job is to infiltrate the loyalist group, and enact rebel laws in order to overthrow the existing government.
 
 The game starts in the Start Screen. Players will enter their names into the app. Once they have entered a minimum of 6 participants, the Begin Game button will render on the screen.
@@ -33,3 +34,4 @@ The game will continue until either the Rebels reach 5 points, or the Loyalists 
 React allowed us to recycle several components with embedded logic that drive the game. With Redux, we could track state and access it from several different screens. In doing this, the game display offers a great user experience, not cluttered with information. It's interactive, but also doesnt demand constant attention while the players focus on the game.
 
 Overall, it was a great first project using **React Native** and **Redux**- looking forward to the next project!
+
