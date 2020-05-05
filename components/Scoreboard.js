@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import LiberalGuide from "./LiberalGuide";
-import FascistGuide from "./FascistGuide";
+import LoyalistGuide from "./LoyalistGuide";
+import RebelGuide from "./RebelGuide";
 import PBar from "./PBar";
 import { TouchableOpacity, Alert } from "react-native";
 import { makeKing } from "../actions";
@@ -23,9 +23,9 @@ class Scoreboard extends Component {
 
   alertWinner() {
     if (this.state.fasScore == 5) {
-      var string = "Fascist have taken over!";
+      var string = "Rebels have taken over!";
     } else {
-      var string = "Liberals stand strong!";
+      var string = "Loyalists stand strong!";
     }
 
     Alert.alert("Victory!", string, [
@@ -93,13 +93,13 @@ class Scoreboard extends Component {
             percentage={(this.state.libScore / 5) * 100}
             color={"#346388"}
           />
-          <LiberalGuide />
+          <LoyalistGuide />
           <View style={{ height: 15 }} />
           <PBar
             percentage={(this.state.fasScore / 6) * 100}
             color={"#D36F47"}
           />
-          <FascistGuide />
+          <RebelGuide />
         </View>
         <View style={styles.btnCol}>
           <TouchableOpacity
@@ -149,8 +149,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
   },
   text: {
-    color: '#EEE'
-  }
+    color: "#EEE",
+  },
 });
 
 const mapStateToProps = (state) => ({

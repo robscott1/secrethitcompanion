@@ -43,7 +43,7 @@ class PlayerCard extends Component {
     if (this.props.duke) {
       title = "Duke";
       position = true;
-    } else if (this.props.King) {
+    } else if (this.props.king) {
       title = "King";
       position = true;
     }
