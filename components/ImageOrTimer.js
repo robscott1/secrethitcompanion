@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 50,
-    color: "#434343",
+    color: "#0E3A5C",
   },
 });
 

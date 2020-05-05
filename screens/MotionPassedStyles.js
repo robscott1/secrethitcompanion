@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "black",
+    backgroundColor: "#7FA4C0",
     width: "100%",
     height: "100%",
     justifyContent: "center",
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   motionText: {
     fontSize: 25,
-    color: "white",
+    color: "#0E3A5C",
     marginBottom: 50,
   },
   playerList: {
@@ -27,14 +27,15 @@ const styles = StyleSheet.create({
     margin: 10,
     width: "80%",
     height: "30%",
-    backgroundColor: "#F7E2C1",
+    backgroundColor: "#EEE",
     borderRadius: 5,
+    shadowOpacity: 0.3,
     justifyContent: "center",
     alignItems: "center",
   },
   text: {
     fontSize: 25,
-    color: "black",
+    color: "#0E3A5C",
   },
 });
 
