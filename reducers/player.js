@@ -1,6 +1,3 @@
-import dbg from "../Debug";
-import { compose } from "redux";
-
 const initState = {
   players: [],
 };
