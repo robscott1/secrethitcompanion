@@ -16,13 +16,13 @@ class LiberalGuide extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 20,
-    backgroundColor: "#6592BC",
-    shadowOpacity: 0.3,
+    backgroundColor: "#1F4F74",
+    shadowOpacity: 0.5,
   },
   boardGuide: {
     width: "80%",
     height: "100%",
-    backgroundColor: "#8ECEDD",
+    backgroundColor: "#507C9D",
   },
 });
 

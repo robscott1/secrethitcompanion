@@ -19,7 +19,7 @@ class AddPlayerPBar extends Component {
             style={{
               height: "100%",
               width: `${this.props.percentage}%`,
-              backgroundColor: "black",
+              backgroundColor: "#0E3A5C",
               borderRadius: 5,
             }}
           ></View>
@@ -32,7 +32,7 @@ class AddPlayerPBar extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 20,
-    borderColor: "black",
+    borderColor: "#0E3A5C",
     borderRadius: 5,
     borderWidth: 1,
   },

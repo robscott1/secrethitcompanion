@@ -66,7 +66,7 @@ class GameScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#7FA4C0",
     height: "100%",
     paddingTop: 35,
   },

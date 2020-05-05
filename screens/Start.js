@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
     paddingHorizontal: 20,
-    backgroundColor: "white",
+    backgroundColor: "#7FA4C0",
     height: "100%",
   },
   header: {
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     width: "20%",
     height: "100%",
     borderRadius: 20,
-    backgroundColor: "#434343",
+    backgroundColor: "#0E3A5C",
     marginHorizontal: 5,
     shadowOpacity: 0.5,
     marginLeft: 5,
@@ -170,8 +170,8 @@ const styles = StyleSheet.create({
     width: "75%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#B5AFA8",
-    borderColor: "#B5AFA8",
+    backgroundColor: "#507C9D",
+    borderColor: "#507C9D",
   },
   beginBtnEnabled: {
     alignSelf: "center",
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     width: "75%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#434343",
+    backgroundColor: "#0E3A5C",
     borderColor: "#434343",
     shadowOpacity: 0.6,
   },

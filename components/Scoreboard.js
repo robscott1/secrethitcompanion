@@ -91,13 +91,13 @@ class Scoreboard extends Component {
         <View style={styles.container}>
           <PBar
             percentage={(this.state.libScore / 5) * 100}
-            color={"#6592BC"}
+            color={"#346388"}
           />
           <LiberalGuide />
           <View style={{ height: 15 }} />
           <PBar
             percentage={(this.state.fasScore / 6) * 100}
-            color={"#BE5A48"}
+            color={"#D36F47"}
           />
           <FascistGuide />
         </View>
@@ -106,13 +106,13 @@ class Scoreboard extends Component {
             style={styles.lPlusBtn}
             onPress={this.incrementLScore}
           >
-            <Text> + </Text>
+            <Text style={styles.text}> + </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.fPlusBtn}
             onPress={this.incrementFScore}
           >
-            <Text> + </Text>
+            <Text style={styles.text}> + </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -129,25 +129,28 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   btnCol: {
-    width: 55,
+    width: 65,
     alignItems: "center",
     height: "100%",
     paddingRight: 30,
   },
   fPlusBtn: {
     marginTop: 10,
+    borderRadius: 5,
     marginBottom: 20, //custom fit, wont reuse
-    borderWidth: 1,
-    backgroundColor: "#BE5A48",
-    shadowOpacity: 0.3,
+    backgroundColor: "#8F320D",
+    shadowOpacity: 0.5,
   },
   lPlusBtn: {
-    marginTop: 10,
+    marginTop: 15,
+    borderRadius: 5,
     marginBottom: 15, //custom fit, wont reuse
-    borderWidth: 1,
-    backgroundColor: "#6592BC",
-    shadowOpacity: 0.3,
+    backgroundColor: "#0E3A5C",
+    shadowOpacity: 0.5,
   },
+  text: {
+    color: '#EEE'
+  }
 });
 
 const mapStateToProps = (state) => ({

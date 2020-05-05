@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
     },
     countdownText: {
         fontSize: 150,
-        color: '#FFF'
+        color: '#EEE'
     },
     voteView: {
-        backgroundColor: '#0F0',
+        backgroundColor: '#1F4F74',
         width: '100%',
         height: '100%',
         justifyContent: 'center',
