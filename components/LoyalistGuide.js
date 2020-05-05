@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-class FascistGuide extends Component {
+class LoyalistGuide extends Component {
   state = {};
 
   render() {
@@ -16,14 +16,14 @@ class FascistGuide extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 20,
-    backgroundColor: "#B54F26",
+    backgroundColor: "#1F4F74",
     shadowOpacity: 0.5,
   },
   boardGuide: {
-    width: "50%",
+    width: "80%",
     height: "100%",
-    backgroundColor: "#F59873",
+    backgroundColor: "#507C9D",
   },
 });
 
-export default FascistGuide;
+export default LoyalistGuide;

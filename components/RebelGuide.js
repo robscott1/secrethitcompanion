@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-class LiberalGuide extends Component {
+class RebelGuide extends Component {
   state = {};
 
   render() {
@@ -16,14 +16,14 @@ class LiberalGuide extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 20,
-    backgroundColor: "#1F4F74",
+    backgroundColor: "#B54F26",
     shadowOpacity: 0.5,
   },
   boardGuide: {
-    width: "80%",
+    width: "50%",
     height: "100%",
-    backgroundColor: "#507C9D",
+    backgroundColor: "#F59873",
   },
 });
 
-export default LiberalGuide;
+export default RebelGuide;
