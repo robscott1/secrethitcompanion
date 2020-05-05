@@ -3,19 +3,15 @@ import {
   View,
   TextInput,
   StyleSheet,
-  Button,
   TouchableOpacity,
   Text,
   Keyboard,
 } from "react-native";
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
-import addPlayerPBar from "../components/AddPlayerPBar";
-import PBar from "../components/PBar";
 import { connect } from "react-redux";
 import { addPlayer, makePresident } from "../actions";
 import AddPlayerPBar from "../components/AddPlayerPBar";
-import dbg from "../Debug";
 
 class StartScreen extends Component {
   constructor(props) {
