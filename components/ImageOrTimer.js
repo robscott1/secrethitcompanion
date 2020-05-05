@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   text: {
-    fontSize: 100,
+    fontSize: 50,
     color: "#434343",
   },
 });
