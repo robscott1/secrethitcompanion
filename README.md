@@ -8,7 +8,7 @@ The game starts in the Start Screen. Players will enter their names into the app
 </div>
 
 <h1>Game</h1>
-Once the game is begun, the app using **React Navigation** to visit the Game Screen. Two key features to point out is the ImageOrTimer component, and the Scoreboard. ImageOrTimer component doubles as the header, and as a timer for heated debate between players. The game is played through deception, so the timer keeps players from debating endlessly (one of the perks of using this to play). The other is the Scoreboard. This tracks state of Loyalist and Rebel Laws enacted, and interactively guides the game as it progresses.
+Once the game has begun, the app uses **React Navigation** to visit the Game Screen. Two key features to point out is the ImageOrTimer component, and the Scoreboard. ImageOrTimer component doubles as the header, and as a timer for heated debate between players. The game is played through deception, so the timer keeps players from debating endlessly (one of the perks of using this to play). The other is the Scoreboard. This tracks state of Loyalist and Rebel Laws enacted, and interactively guides the game as it progresses.
 
 <div align="center">
     <img src= "/imagefolder/gamescreen1.jpg" width="160" height="250" > <img src= "/imagefolder/gamescreentimer.jpg" width="160" height="250" >
