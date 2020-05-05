@@ -98,7 +98,12 @@ class StartScreen extends Component {
           style={styles.bar}
         />
         <PlayerList players={this.props.players} purpose="start" />
-        <View style={{ display: this.props.players > 5 ? "flex" : "none" }}>
+        <View
+          style={{
+            display: this.props.players.length > 5 ? "flex" : "none",
+            paddingTop: 20,
+          }}
+        >
           <TouchableOpacity
             style={
               this.props.players.length > 5
@@ -129,9 +134,9 @@ const styles = StyleSheet.create({
     height: 40,
   },
   container: {
-    paddingTop: 70,
+    paddingTop: 50,
     paddingHorizontal: 20,
-    backgroundColor: "#FBB969",
+    backgroundColor: "white",
     height: "100%",
   },
   header: {
@@ -139,7 +144,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     marginTop: 30,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   input: {
     height: "100%",
