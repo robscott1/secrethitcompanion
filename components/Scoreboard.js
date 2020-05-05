@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import LiberalGuide from "./LiberalGuide";
-import FascistGuide from "./FascistGuide";
+import LoyalistGuide from "./LoyalistGuide";
+import RebelGuide from "./RebelGuide";
 import PBar from "./PBar";
 import { TouchableOpacity, Alert } from "react-native";
-import { makePresident } from "../actions";
+import { makeKing } from "../actions";
 import { connect } from "react-redux";
 
 class Scoreboard extends Component {
@@ -23,9 +23,9 @@ class Scoreboard extends Component {
 
   alertWinner() {
     if (this.state.fasScore == 5) {
-      var string = "Fascist have taken over!";
+      var string = "Rebels have taken over!";
     } else {
-      var string = "Liberals stand strong!";
+      var string = "Loyalists stand strong!";
     }
 
     Alert.alert("Victory!", string, [
@@ -57,7 +57,7 @@ class Scoreboard extends Component {
         }
       }
 
-      this.props.newPresident();
+      this.props.newKing();
       this.props.reRender();
       if (this.state.fasScore === 5) {
         this.alertWinner();
@@ -77,7 +77,7 @@ class Scoreboard extends Component {
         fasScore: fas,
       });
 
-      this.props.newPresident();
+      this.props.newKing();
       this.props.reRender();
       if (this.state.libScore === 4) {
         this.alertWinner();
@@ -91,28 +91,28 @@ class Scoreboard extends Component {
         <View style={styles.container}>
           <PBar
             percentage={(this.state.libScore / 5) * 100}
-            color={"#6592BC"}
+            color={"#346388"}
           />
-          <LiberalGuide />
+          <LoyalistGuide />
           <View style={{ height: 15 }} />
           <PBar
             percentage={(this.state.fasScore / 6) * 100}
-            color={"#BE5A48"}
+            color={"#D36F47"}
           />
-          <FascistGuide />
+          <RebelGuide />
         </View>
         <View style={styles.btnCol}>
           <TouchableOpacity
             style={styles.lPlusBtn}
             onPress={this.incrementLScore}
           >
-            <Text> + </Text>
+            <Text style={styles.text}> + </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.fPlusBtn}
             onPress={this.incrementFScore}
           >
-            <Text> + </Text>
+            <Text style={styles.text}> + </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -129,24 +129,27 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   btnCol: {
-    width: 55,
+    width: 65,
     alignItems: "center",
     height: "100%",
     paddingRight: 30,
   },
   fPlusBtn: {
     marginTop: 10,
+    borderRadius: 5,
     marginBottom: 20, //custom fit, wont reuse
-    borderWidth: 1,
-    backgroundColor: "#BE5A48",
-    shadowOpacity: 0.3,
+    backgroundColor: "#8F320D",
+    shadowOpacity: 0.5,
   },
   lPlusBtn: {
-    marginTop: 10,
+    marginTop: 15,
+    borderRadius: 5,
     marginBottom: 15, //custom fit, wont reuse
-    borderWidth: 1,
-    backgroundColor: "#6592BC",
-    shadowOpacity: 0.3,
+    backgroundColor: "#0E3A5C",
+    shadowOpacity: 0.5,
+  },
+  text: {
+    color: "#EEE",
   },
 });
 
@@ -156,7 +159,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  newPresident: () => dispatch(makePresident(null)),
+  newKing: () => dispatch(makeKing(null)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Scoreboard);

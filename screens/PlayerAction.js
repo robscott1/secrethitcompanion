@@ -6,7 +6,7 @@ import ElectBtn from "../components/ElectBtn";
 import KillBtn from "../components/KillBtn";
 import { render } from "react-dom";
 import { connect } from "react-redux";
-import { electChancellor } from "../actions";
+import { electDuke } from "../actions";
 import { killPlayer } from "../actions";
 
 class PlayerActionScreen extends Component {
@@ -29,8 +29,8 @@ class PlayerActionScreen extends Component {
   }
 
   elect(player) {
-    console.log("elect chancellor triggered..");
-    this.props.electNewChancellor(player);
+    console.log("elect Duke triggered..");
+    this.props.electNewDuke(player);
     this.props.navigation.navigate("game");
   }
 
@@ -77,9 +77,9 @@ const mapDispatchToProps = (dispatch) => ({
     console.log("kill player triggered");
     dispatch(killPlayer(player));
   },
-  electNewChancellor: (player) => {
-    console.log("elect chancellor triggered");
-    dispatch(electChancellor(player));
+  electNewDuke: (player) => {
+    console.log("elect Duke triggered");
+    dispatch(electDuke(player));
   },
 });
 

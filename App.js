@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import GameScreen from "./screens/Game";
-import ChooseChancellor from "./screens/ChooseChancellor";
+import ChooseDuke from "./screens/ChooseDuke";
 import StartScreen from "./screens/Start";
 import PlayerActionScreen from "./screens/PlayerAction";
 import Vote from "./screens/Vote";
@@ -26,11 +26,14 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="start" screenOptions={{headerShown : false}}>
+          <Stack.Navigator
+            initialRouteName="start"
+            screenOptions={{ headerShown: false }}
+          >
             <Stack.Screen name="start" component={StartScreen}></Stack.Screen>
             <Stack.Screen
-              name="chooseChancellor"
-              component={ChooseChancellor}
+              name="chooseDuke"
+              component={ChooseDuke}
               screenOptions={{ headerShown: false }}
             ></Stack.Screen>
             <Stack.Screen

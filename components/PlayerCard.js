@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { spotlight, electChancellor, deletePlayer } from "../actions";
+import { spotlight, electDuke, deletePlayer } from "../actions";
 import { killPlayer } from "../actions";
 
 import { connect } from "react-redux";
@@ -23,7 +23,7 @@ class PlayerCard extends Component {
         break;
 
       case "elect":
-        console.log("player list before Chancellor election..");
+        console.log("player list before Duke election..");
         console.log(this.props.players);
         this.props.elect(this.props.id);
         this.props.update;
@@ -40,11 +40,11 @@ class PlayerCard extends Component {
     var position = false;
     var title = "";
 
-    if (this.props.chancellor) {
-      title = "Chancellor";
+    if (this.props.duke) {
+      title = "Duke";
       position = true;
-    } else if (this.props.president) {
-      title = "President";
+    } else if (this.props.king) {
+      title = "King";
       position = true;
     }
     if (this.props.alive) {
@@ -102,38 +102,32 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F7E2C1",
-    borderColor: "#434343",
+    backgroundColor: "#EEE",
     borderRadius: 5,
-    borderWidth: 1,
     margin: 10,
     height: 50,
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.5,
   },
   containerNormal: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F7E2C1",
-    borderColor: "#434343",
+    backgroundColor: "#EEE",
     borderRadius: 5,
-    borderWidth: 1,
     margin: 10,
     height: 50,
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.5,
   },
   containerDead: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     textDecorationLine: "line-through",
-    backgroundColor: "red",
-    borderColor: "#434343",
+    backgroundColor: "#B54F26",
     borderRadius: 5,
-    borderWidth: 1,
     margin: 10,
     height: 50,
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.5,
   },
   position: {
     backgroundColor: "#434343",
@@ -162,7 +156,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(killPlayer(player));
   },
   elect: (player) => {
-    dispatch(electChancellor(player));
+    dispatch(electDuke(player));
   },
   delete: (player) => {
     dispatch(deletePlayer(player));

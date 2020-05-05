@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, TouchableHighlight, Text } from "react-native";
-import { makePresident } from "../actions";
+import { makeKing } from "../actions";
 import { startTimer, stopTimer } from "../actions/timerActions";
 import { connect } from "react-redux";
 
@@ -43,21 +43,20 @@ const styles = StyleSheet.create({
   },
   button: {
     paddingHorizontal: 20,
-    borderWidth: 2,
     height: 50,
-    borderRadius: 20,
+    borderRadius: 5,
     flex: 1,
     justifyContent: "center", // gotta use these stylings
     alignItems: "center", // on body holding text
-    backgroundColor: "#434343",
+    backgroundColor: "#EEE",
     marginHorizontal: 10,
-    shadowOpacity: 0.75,
+    shadowOpacity: 0.7,
   },
   text: {
     justifyContent: "center",
     fontSize: 14,
     paddingVertical: 10,
-    color: "white",
+    color: "#000",
   },
 });
 

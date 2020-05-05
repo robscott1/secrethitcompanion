@@ -15,8 +15,8 @@ class PlayerList extends Component {
           renderItem={({ item }) => (
             <PlayerCard
               id={item.id}
-              chancellor={item.chancellor}
-              president={item.president}
+              duke={item.duke}
+              king={item.king}
               alive={item.alive}
               nav={this.props.nav}
               purpose={this.props.purpose}
@@ -37,7 +37,7 @@ class PlayerList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: "45%",
+    height: "50%",
     padding: 10,
   },
 });

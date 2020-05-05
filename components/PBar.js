@@ -21,7 +21,7 @@ class PBar extends Component {
         <View
           style={{
             height: "100%",
-            backgroundColor: "blue",
+            backgroundColor: "white",
             width: `${this.props.percentage}%`,
             backgroundColor: this.props.color,
           }}

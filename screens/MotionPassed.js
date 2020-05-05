@@ -10,9 +10,9 @@ import {
   Keyboard,
 } from "react-native";
 import { connect } from "react-redux";
-import { electChancellor, incrementFail } from "../actions/voteActions.js";
+import { electDuke, incrementFail } from "../actions/voteActions.js";
 import PlayerList from "../components/PlayersList";
-import { makePresident } from "../actions";
+import { makeKing } from "../actions";
 
 class MotionPassed extends Component {
   constructor(props) {
@@ -24,13 +24,13 @@ class MotionPassed extends Component {
 
   handleNein() {
     this.props.voteFailure();
-    this.props.newPresident();
+    this.props.newKing();
     this.props.navigation.navigate("game");
   }
 
   handleJa() {
     console.log("handled..");
-    this.props.navigation.navigate("chooseChancellor");
+    this.props.navigation.navigate("chooseDuke");
   }
 
   render() {
@@ -39,10 +39,10 @@ class MotionPassed extends Component {
         <Text style={styles.motionText}>Was the motion passed?</Text>
         <View style={styles.buttonView}>
           <TouchableOpacity onPress={this.handleJa} style={styles.button}>
-            <Text style={styles.text}>JA!</Text>
+            <Text style={styles.text}>Yes!</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.handleNein} style={styles.button}>
-            <Text style={styles.text}>NEIN!</Text>
+            <Text style={styles.text}>No!</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -55,14 +55,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  electChancellor: () => {
-    dispatch(electChancellor);
+  electDuke: () => {
+    dispatch(electDuke);
   },
   voteFailure: () => {
     dispatch(incrementFail);
   },
-  newPresident: () => {
-    dispatch(makePresident(null));
+  newKing: () => {
+    dispatch(makeKing(null));
   },
 });
 

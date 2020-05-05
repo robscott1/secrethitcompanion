@@ -3,19 +3,15 @@ import {
   View,
   TextInput,
   StyleSheet,
-  Button,
   TouchableOpacity,
   Text,
   Keyboard,
 } from "react-native";
 import ImageOrTimer from "../components/ImageOrTimer";
 import PlayerList from "../components/PlayersList";
-import addPlayerPBar from "../components/AddPlayerPBar";
-import PBar from "../components/PBar";
 import { connect } from "react-redux";
-import { addPlayer, makePresident } from "../actions";
+import { addPlayer, makeKing } from "../actions";
 import AddPlayerPBar from "../components/AddPlayerPBar";
-import dbg from "../Debug";
 
 class StartScreen extends Component {
   constructor(props) {
@@ -42,7 +38,7 @@ class StartScreen extends Component {
     if (this.props.players.length < 6) {
       alert("Add at least 6 players to start!");
     } else {
-      this.props.changePresident("start");
+      this.props.changeKing("start");
       this.props.navigation.navigate("game");
     }
   }
@@ -56,8 +52,8 @@ class StartScreen extends Component {
 
     var player = {
       id: this.state.entry,
-      chancellor: false,
-      president: false,
+      Duke: false,
+      king: false,
       alive: true,
       key: Date.now(),
     };
@@ -98,7 +94,12 @@ class StartScreen extends Component {
           style={styles.bar}
         />
         <PlayerList players={this.props.players} purpose="start" />
-        <View style={{ display: this.props.players > 5 ? "flex" : "none" }}>
+        <View
+          style={{
+            display: this.props.players.length > 5 ? "flex" : "none",
+            paddingTop: 20,
+          }}
+        >
           <TouchableOpacity
             style={
               this.props.players.length > 5
@@ -129,9 +130,9 @@ const styles = StyleSheet.create({
     height: 40,
   },
   container: {
-    paddingTop: 70,
+    paddingTop: 50,
     paddingHorizontal: 20,
-    backgroundColor: "#FBB969",
+    backgroundColor: "#7FA4C0",
     height: "100%",
   },
   header: {
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     marginTop: 30,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   input: {
     height: "100%",
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     width: "20%",
     height: "100%",
     borderRadius: 20,
-    backgroundColor: "#434343",
+    backgroundColor: "#0E3A5C",
     marginHorizontal: 5,
     shadowOpacity: 0.5,
     marginLeft: 5,
@@ -169,8 +170,8 @@ const styles = StyleSheet.create({
     width: "75%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#B5AFA8",
-    borderColor: "#B5AFA8",
+    backgroundColor: "#507C9D",
+    borderColor: "#507C9D",
   },
   beginBtnEnabled: {
     alignSelf: "center",
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
     width: "75%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#434343",
+    backgroundColor: "#0E3A5C",
     borderColor: "#434343",
     shadowOpacity: 0.6,
   },
@@ -203,11 +204,11 @@ const mapDispatchToProps = (dispatch) => ({
   killAPlayer: (player) => {
     dispatch(killPlayer(player));
   },
-  electNewChancellor: (player) => {
-    dispatch(electChancellor(player));
+  electNewDuke: (player) => {
+    dispatch(electDuke(player));
   },
-  changePresident: (start) => {
-    dispatch(makePresident(start));
+  changeKing: (start) => {
+    dispatch(makeKing(start));
   },
 });
 

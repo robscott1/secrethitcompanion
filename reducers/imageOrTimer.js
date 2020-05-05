@@ -1,7 +1,7 @@
-initState = {
+const initState = {
     timerOn: false,
-    countdown: 300,
-}
+    countdown: 300
+};
 
 const imageOrTimerReducer = (state = initState, action) => {
     switch(action.type) {

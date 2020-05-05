@@ -7,7 +7,7 @@ import PlayerList from "../components/PlayersList";
 import Scoreboard from "../components/Scoreboard";
 import ButtonMenu from "../components/ButtonMenu";
 import { NavigationContainer } from "@react-navigation/native";
-import { makePresident, resetPlayers } from "../actions";
+import { makeKing, resetPlayers } from "../actions";
 import { resetVote } from "../actions/voteActions";
 
 class GameScreen extends Component {
@@ -65,14 +65,8 @@ class GameScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  imageStyle: {
-    marginTop: 20,
-    marginLeft: 10,
-    width: 40,
-    height: 40,
-  },
   container: {
-    backgroundColor: "#FBB969",
+    backgroundColor: "#7FA4C0",
     height: "100%",
     paddingTop: 35,
   },

@@ -19,16 +19,16 @@ export const killPlayer = (payload) => {
   };
 };
 
-export const electChancellor = (payload) => {
+export const electDuke = (payload) => {
   return {
     type: "ELECT",
     payload,
   };
 };
 
-export const makePresident = (payload) => {
+export const makeKing = (payload) => {
   return {
-    type: "PRESIDENT",
+    type: "KING",
     payload,
   };
 };

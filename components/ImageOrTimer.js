@@ -77,7 +77,7 @@ class ImageOrTimer extends Component {
         <View style={styles.container}>
           <Image
             style={styles.img}
-            source={require("../imagefolder/secret-hitler-logo-png-1.png")}
+            source={require("../assets/game-title.png")}
           />
         </View>
       );
@@ -90,14 +90,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 10,
-    height: 100,
+    height: 50,
   },
   text: {
-    fontSize: 100,
-    color: "#434343",
-  },
-  img: {
-    marginLeft: 40,
+    fontSize: 50,
+    color: "#0E3A5C",
   },
 });
 
