@@ -5,7 +5,7 @@ const ElectBtn = (props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.btn} onPress={props.onPress}>
-        <Text>Elect {props.name} as Chancellor</Text>
+        <Text>Elect {props.name} as Duke</Text>
       </TouchableOpacity>
     </View>
   );

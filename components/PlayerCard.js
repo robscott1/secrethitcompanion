@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { spotlight, electChancellor, deletePlayer } from "../actions";
+import { spotlight, electDuke, deletePlayer } from "../actions";
 import { killPlayer } from "../actions";
 
 import { connect } from "react-redux";
@@ -23,7 +23,7 @@ class PlayerCard extends Component {
         break;
 
       case "elect":
-        console.log("player list before Chancellor election..");
+        console.log("player list before Duke election..");
         console.log(this.props.players);
         this.props.elect(this.props.id);
         this.props.update;
@@ -40,8 +40,8 @@ class PlayerCard extends Component {
     var position = false;
     var title = "";
 
-    if (this.props.chancellor) {
-      title = "Chancellor";
+    if (this.props.duke) {
+      title = "Duke";
       position = true;
     } else if (this.props.president) {
       title = "President";
@@ -162,7 +162,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(killPlayer(player));
   },
   elect: (player) => {
-    dispatch(electChancellor(player));
+    dispatch(electDuke(player));
   },
   delete: (player) => {
     dispatch(deletePlayer(player));

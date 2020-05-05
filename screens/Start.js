@@ -52,7 +52,7 @@ class StartScreen extends Component {
 
     var player = {
       id: this.state.entry,
-      chancellor: false,
+      Duke: false,
       president: false,
       alive: true,
       key: Date.now(),
@@ -204,8 +204,8 @@ const mapDispatchToProps = (dispatch) => ({
   killAPlayer: (player) => {
     dispatch(killPlayer(player));
   },
-  electNewChancellor: (player) => {
-    dispatch(electChancellor(player));
+  electNewDuke: (player) => {
+    dispatch(electDuke(player));
   },
   changePresident: (start) => {
     dispatch(makePresident(start));

@@ -15,7 +15,7 @@ class PlayerList extends Component {
           renderItem={({ item }) => (
             <PlayerCard
               id={item.id}
-              chancellor={item.chancellor}
+              duke={item.duke}
               president={item.president}
               alive={item.alive}
               nav={this.props.nav}

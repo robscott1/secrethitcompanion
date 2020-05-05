@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import PlayerList from "../components/PlayersList";
 import { connect } from "react-redux";
-import { electChancellor } from "../actions/voteActions.js";
-import styles from "./ChooseChancellorStyles";
+import { electDuke } from "../actions/voteActions.js";
+import styles from "./ChooseDukeStyles";
 import { View, Text } from "react-native";
 
-class ChooseChancellor extends Component {
+class ChooseDuke extends Component {
   constructor(props) {
     super(props);
   }
@@ -14,7 +14,7 @@ class ChooseChancellor extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.textView}>
-          <Text style={styles.text}>Choose your new Chancellor wisely...</Text>
+          <Text style={styles.text}>Choose your new Duke wisely...</Text>
         </View>
         <PlayerList
           players={this.props.players}
@@ -31,9 +31,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  electChancellor: () => {
-    dispatch(electChancellor);
+  electDuke: () => {
+    dispatch(electDuke);
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChooseChancellor);
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseDuke);

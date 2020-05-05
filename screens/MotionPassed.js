@@ -10,7 +10,7 @@ import {
   Keyboard,
 } from "react-native";
 import { connect } from "react-redux";
-import { electChancellor, incrementFail } from "../actions/voteActions.js";
+import { electDuke, incrementFail } from "../actions/voteActions.js";
 import PlayerList from "../components/PlayersList";
 import { makePresident } from "../actions";
 
@@ -30,7 +30,7 @@ class MotionPassed extends Component {
 
   handleJa() {
     console.log("handled..");
-    this.props.navigation.navigate("chooseChancellor");
+    this.props.navigation.navigate("chooseDuke");
   }
 
   render() {
@@ -55,8 +55,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  electChancellor: () => {
-    dispatch(electChancellor);
+  electDuke: () => {
+    dispatch(electDuke);
   },
   voteFailure: () => {
     dispatch(incrementFail);

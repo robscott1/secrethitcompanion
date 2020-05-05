@@ -19,7 +19,7 @@ export const killPlayer = (payload) => {
   };
 };
 
-export const electChancellor = (payload) => {
+export const electDuke = (payload) => {
   return {
     type: "ELECT",
     payload,

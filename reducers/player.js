@@ -40,18 +40,18 @@ const playerReducer = (state = initState, action) => {
 
     case "ELECT":
       // un-elect current player
-      let oldChancellor = state.players.find(function (item) {
-        return item.chancellor === true;
+      let oldDuke = state.players.find(function (item) {
+        return item.duke === true;
       });
-      if (oldChancellor != undefined) {
-        oldChancellor.chancellor = false;
+      if (oldDuke != undefined) {
+        oldDuke.duke = false;
       }
 
       // elect new player
-      let newChancellor = state.players.find(function (item) {
+      let newDuke = state.players.find(function (item) {
         return item.id === action.payload;
       });
-      newChancellor.chancellor = true;
+      newDuke.duke = true;
 
       return {
         ...state, // whats good with setting state here
@@ -86,8 +86,8 @@ const playerReducer = (state = initState, action) => {
         }
 
         state.players.forEach((player) => {
-          if (player.chancellor) {
-            player.chancellor = false;
+          if (player.duke) {
+            player.duke = false;
           }
         });
       }
