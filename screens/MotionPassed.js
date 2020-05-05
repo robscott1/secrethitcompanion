@@ -39,10 +39,10 @@ class MotionPassed extends Component {
         <Text style={styles.motionText}>Was the motion passed?</Text>
         <View style={styles.buttonView}>
           <TouchableOpacity onPress={this.handleJa} style={styles.button}>
-            <Text style={styles.text}>JA!</Text>
+            <Text style={styles.text}>Yes!</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.handleNein} style={styles.button}>
-            <Text style={styles.text}>NEIN!</Text>
+            <Text style={styles.text}>No!</Text>
           </TouchableOpacity>
         </View>
       </View>
