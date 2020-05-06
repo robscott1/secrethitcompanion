@@ -15,7 +15,7 @@ Once the game has begun, the app uses **React Navigation** to visit the Game Scr
 </div>
 
 <h1>React Navigation and Redux</h1>
-The King must nominate a Duke in order to enact a Law. The Debate button is pressed, and the ImageOrTimer component switches to a timer that counts down from 5 minutes. If debate is over before then, simply press the debate button again. The vote button uses React Navigation to navigation through two screens: the pass/fail screen, then choosing the Duke.
+<h2> The vote button uses React Navigation to navigation through two screens: the pass/fail screen, then choosing the Duke. </h2>
 
 <div align="center">
     <img src= "/imagefolder/motionpassed.jpg" width="160" height="250" > <img src= "/imagefolder/chooseduke.jpg" width="160" height="250" > <img src= "/imagefolder/gamescreenduke.jpg" width="160" height="250" >
