@@ -21,7 +21,7 @@
     <img src= "/imagefolder/motionpassed.jpg" width="160" height="250" > <img src= "/imagefolder/chooseduke.jpg" width="160" height="250" > <img src= "/imagefolder/gamescreenduke.jpg" width="160" height="250" >
 </div>
 <h2></h2>
-<h3>By implementing **Redux** in the app, we are able to track the players' throughout the game. That includes whether or not they have been killed and if they hold a position of power. The PlayerCard components are widely reused in several screens, each with a specific "purpose" prop. Pressing a player card can mean several different things are happening in the game- the purpose prop determines what Redux action is dispatched.</h3>
+<h3>By implementing Redux in the app, we are able to track the game variables to integrate logic throughout the game. That includes whether or not they have been killed and if they hold a position of power. The PlayerCard components are widely reused in several screens, each with a specific "purpose" prop. Pressing a player card can mean several different things are happening in the game- the purpose prop determines what Redux action is dispatched.</h3>
 
 <h3>The King switches once a law is enacted, just as the boardgame prompts players to do. Once one of the plus buttons are pressed, the roles are reset for the next round. Later in the game, it gets a bit more interesting.</h3>
 
