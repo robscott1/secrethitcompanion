@@ -1,4 +1,4 @@
-<h3>We built a **React Native** companion-app to Coup D'etat, a board game that requires deception and teamwork in order to help your side win. The rebel's job is to infiltrate the loyalist group, and enact rebel laws in order to overthrow the existing government. </h3>
+<h3>We built a React Native companion-app to Coup D'etat, a board game that requires deception and teamwork in order to help your side win. The rebel's job is to infiltrate the loyalist group, and enact rebel laws in order to overthrow the existing government. </h3>
 
 <h1>Start</h1>
     <h3>The game starts in the Start Screen. Players will enter their names into the app. Once they have entered a minimum of 6     participants, the Begin Game button will render on the screen.</h3>
