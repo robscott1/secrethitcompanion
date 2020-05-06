@@ -1,13 +1,11 @@
 We built a **React Navtive** companion-app to Coup D'etat, a board game that requires deception and teamwork in order to help your side win. The rebel's job is to infiltrate the loyalist group, and enact rebel laws in order to overthrow the existing government.
 
 <h1>Start</h1>
-<div>
     The game starts in the Start Screen. Players will enter their names into the app. Once they have entered a minimum of 6     participants, the Begin Game button will render on the screen.
 
-    <div align="right">
-        <img src= "/imagefolder/startscreen.jpg"  width="160" height="250" > <img src= "/imagefolder/startscreen2.jpg" width="160" height="250" > 
+   <div align="right">
+        <img src= "/imagefolder/startscreen.jpg"  width="160" height="250" >    <img src= "/imagefolder/startscreen2.jpg" width="160" height="250" > 
     </div>
-</div>
 
 <h1>Game</h1>
 Once the game has begun, the app uses **React Navigation** to visit the Game Screen. Two key features to point out is the ImageOrTimer component, and the Scoreboard. ImageOrTimer component doubles as the header, and as a timer for heated debate between players. The game is played through deception, so the timer keeps players from debating endlessly (one of the perks of using this to play). The other is the Scoreboard. This tracks state of Loyalist and Rebel Laws enacted, and interactively guides the game as it progresses.
