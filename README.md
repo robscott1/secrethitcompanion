@@ -4,7 +4,7 @@ We built a **React Navtive** companion-app to Coup D'etat, a board game that req
 The game starts in the Start Screen. Players will enter their names into the app. Once they have entered a minimum of 6 participants, the Begin Game button will render on the screen.
 
 <div align="center">
-    <img src= "/imagefolder/startscreen.jpg"  width="160" height="250" > <img src= "/imagefolder/startscreen2.jpg" width="160" height="250" > 
+    <img style= "float:right;" src= "/imagefolder/startscreen.jpg"  width="160" height="250" > <img src= "/imagefolder/startscreen2.jpg" width="160" height="250" > 
 </div>
 
 <h1>Game</h1>
