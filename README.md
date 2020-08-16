@@ -46,4 +46,4 @@
 
 <h3>React allowed us to recycle several components with embedded logic that drive the game. With Redux, we could track state and access it from several different screens. In doing this, the game display offers a great user experience, not cluttered with information. It's interactive, but also doesnt demand constant attention while the players focus on the game.
     <h4></h4>
-<h3>Overall, it was a great first project using **React Native** and **Redux**- looking forward to the next project!</h3>
+<h3>Such a great first project using **React Native** and **Redux**- looking forward to the next project!</h3>
