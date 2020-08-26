@@ -1,11 +1,13 @@
 <h3>We built a React Native companion-app to Coup D'etat, a board game that requires deception and teamwork in order to help your side win. The rebel's job is to infiltrate the loyalist group, and enact rebel laws in order to overthrow the existing government. </h3>
 
 <h2>How to demo..</h2>
-<p>First, clone the repository: <code>git clone https://github.com/robscott1/boardgame-companion.git</code></p>
-<p>Next, hit <code>sudo npm install -g expo-cli</code>... we will use Expo Client to demo the app.</p>
-<p>Download Expo Client on your iPhone. The app can be run on the web but the React Native doesnt look as good</p>
-<p>Use <code>npm install</code> in the root directory to download the dependencies.</p>
-<p>Finally, <code>npm start</code> and use the QR code to start the demo on your phone! </p>
+<ol>
+    <p>First, clone the repository: <code>git clone https://github.com/robscott1/boardgame-companion.git</code></p>
+    <p>Next, hit <code>sudo npm install -g expo-cli</code>... we will use Expo Client to demo the app.</p>
+    <p>Download Expo Client on your iPhone. The app can be run on the web but the React Native doesnt look as good</p>
+    <p>Use <code>npm install</code> in the root directory to install the dependencies.</p>
+    <p>Finally, <code>npm start</code> and use the QR code to start the demo on your phone! </p>
+</ol>
 <h1></h1>
 
 
