@@ -2,11 +2,11 @@
 
 <h2>How to demo..</h2>
 <ol>
-    <p>First, clone the repository: <code>git clone https://github.com/robscott1/boardgame-companion.git</code></p>
-    <p>Next, hit <code>sudo npm install -g expo-cli</code>... we will use Expo Client to demo the app.</p>
-    <p>Download Expo Client on your iPhone. The app can be run on the web but the React Native doesnt look as good</p>
-    <p>Use <code>npm install</code> in the root directory to install the dependencies.</p>
-    <p>Finally, <code>npm start</code> and use the QR code to start the demo on your phone! </p>
+    <li>First, clone the repository: <code>git clone https://github.com/robscott1/boardgame-companion.git</code></li>
+    <li>Next, hit <code>sudo npm install -g expo-cli</code>... we will use Expo Client to demo the app.</li>
+    <li>Download Expo Client on your iPhone. The app can be run on the web but the React Native doesnt look as good</li>
+    <li>Use <code>npm install</code> in the root directory to install the dependencies.</li>
+    <li>Finally, <code>npm start</code> and use the QR code to start the demo on your phone! </li>
 </ol>
 <h1></h1>
 
